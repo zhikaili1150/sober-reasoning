@@ -1,1 +1,1 @@
-# sober-reasoning
+# Sober Reasoning Leaderboard
