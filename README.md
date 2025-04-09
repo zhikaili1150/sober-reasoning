@@ -4,6 +4,7 @@ This repository hosts evaluation code from our paper:
 
 **"A Sober Look at Progress in Language Model Reasoning: Pitfalls and Paths to Reproducibility"**
 
+📊 [Leaderboard](https://bethgelab.github.io/sober_reasoning/)  
 🧪 [HuggingFace Dataset Page](https://huggingface.co/datasets/bethgelab/sober_reasoning)
 
 ## 🚀 Quickstart: Running an Evaluation
