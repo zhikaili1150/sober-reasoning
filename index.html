@@ -3,74 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Math Model Leaderboard</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🍷</text></svg>">
+
+  <title>Sober Reasoning</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');</style>
+
+  <script>
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 
   <style>
+    body {
+  font-size: 1rem;
+}
+
+table.dataTable thead th {
+  font-size: 1rem;
+  padding: 14px 10px;
+}
+
+table.dataTable td {
+  font-size: 0.95rem;
+  padding: 12px 10px;
+}
+
+.group-header {
+  font-size: 1rem;
+  padding: 10px 12px;
+}
+
+
+    body {
+      font-family: 'Inter', sans-serif ;
+      font-size: rem;
+      line-height: 1.6;
+    }
+
+    table.dataTable thead th {
+      background-color: #f9fafb;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 12px 8px;
+    }
+
+    table.dataTable td {
+      padding: 10px 8px;
+      vertical-align: middle;
+    }
+
+    table.dataTable.stripe tbody tr.odd {
+      background-color: #fcfcfd;
+    }
+
+    table.dataTable tbody tr:hover {
+      background-color: #f0fdfa !important;
+    }
+
     .group-header {
-      font-weight: bold;
-      background-color: #e5e7eb !important;
-      text-align: left;
+      background-color: #f3f4f6 !important;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      font-weight: 600;
     }
-    .highlight-row {
-      background-color: #fef3c7 !important;
-    }
-    .model-name {
-      font-weight: 500;
-    }
+
     .best-score {
       font-weight: bold;
       color: #047857;
     }
+
+    .highlight-row {
+      background-color: #fef3c7 !important;
+    }
+
     .dataTables_wrapper .dataTables_filter {
+      margin: 0;
       float: none;
-      text-align: left;
-      margin-bottom: 1rem;
-    }
-    .dataTables_wrapper .dataTables_length,
-    .dataTables_wrapper .dataTables_filter {
-      margin-bottom: 1rem;
-    }
-    .dataTables_wrapper .dataTables_info {
-      padding-top: 0.5rem;
-    }
-    .dataTables_wrapper .dataTables_filter {
-    margin: 0;
-    float: none;
     }
 
-
-    #groupFilterContainer {
-      margin-bottom: 1rem;
+    .dataTables_wrapper .dataTables_filter input {
+      font-size: 0.875rem;
     }
+
+    
+    
   </style>
 </head>
 <body class="bg-white text-gray-900 p-6">
   <div class="max-w-7xl mx-auto">
     <!-- Heading and buttons section -->
     <div class="text-center mb-6">
-    <h1 class="text-3xl font-bold mb-4">Sober Reasoning Leaderboard</h1>
-    <p class="text-sm text-gray-700 mb-4 max-w-2xl mx-auto">
-        Evaluation reports Pass@1 accuracy (mean ± std) across six math benchmarks using standardized evaluation (LightEval). Averages are automatically computed.
-    </p>
-    <div class="flex justify-center gap-4 mb-6 flex-wrap">
-        <a href="https://your-paper-link.com" target="_blank"
-        class="px-4 py-2 flex items-center gap-2 bg-pink-100 text-pink-800 text-sm rounded hover:bg-pink-200 transition border border-pink-200 shadow-sm">
-        <i class="fas fa-file-alt"></i>
-        Paper
-        </a>
-        <a href="https://your-code-link.com" target="_blank"
-        class="px-4 py-2 flex items-center gap-2 bg-blue-100 text-blue-800 text-sm rounded hover:bg-blue-200 transition border border-blue-200 shadow-sm">
-        <i class="fab fa-github"></i>
-        Code
-        </a>
-    </div>
-    </div>
+        <h1 class="text-4xl font-bold mb-3 tracking-tight text-gray-900">Sober Reasoning Leaderboard</h1>
+        <p class="text-base text-gray-600 max-w-2xl mx-auto mb-4">
+          Evaluation reports Pass@1 accuracy (mean ± std) across six math benchmarks using standardized evaluation. The scores are across 10 seeds for AIME24, AIME25, and AMC23; and across 3 seeds for MATH500, Minerva and OlympiadBench.
+        </p>
+        <div class="flex justify-center gap-4 mb-6 flex-wrap">
+          <a href="https://arxiv.org/pdf/2504.07086" target="_blank"
+            class="px-4 py-2 flex items-center gap-2 bg-pink-100 text-pink-800 text-sm rounded-lg hover:bg-pink-200 transition border border-pink-200 shadow-sm">
+            <i class="fas fa-file-alt"></i>
+            Paper
+          </a>
+          <a href="https://github.com/bethgelab/sober-reasoning" target="_blank"
+            class="px-4 py-2 flex items-center gap-2 bg-blue-100 text-blue-800 text-sm rounded-lg hover:bg-blue-200 transition border border-blue-200 shadow-sm">
+            <i class="fab fa-github"></i>
+            Code
+          </a>
+        </div>
+      </div>
+      
 
 
 <!-- Unified controls bar -->
