@@ -8,6 +8,9 @@
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
   <style>
     .group-header {
       font-weight: bold;
@@ -36,6 +39,12 @@
     .dataTables_wrapper .dataTables_info {
       padding-top: 0.5rem;
     }
+    .dataTables_wrapper .dataTables_filter {
+    margin: 0;
+    float: none;
+    }
+
+
     #groupFilterContainer {
       margin-bottom: 1rem;
     }
@@ -43,29 +52,54 @@
 </head>
 <body class="bg-white text-gray-900 p-6">
   <div class="max-w-7xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6">Sober Reasoning Leaderboard</h1>
-
-    <div class="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-      <button id="toggleCaption" class="mb-2 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 text-sm">Show caption</button>
-      <div id="caption" class="text-sm text-gray-700 hidden">
-        Evaluation details: Pass@1 accuracy across six math benchmarks under a unified evaluation pipeline.
-      </div>
+    <!-- Heading and buttons section -->
+    <div class="text-center mb-6">
+    <h1 class="text-3xl font-bold mb-4">Sober Reasoning Leaderboard</h1>
+    <p class="text-sm text-gray-700 mb-4 max-w-2xl mx-auto">
+        Evaluation reports Pass@1 accuracy (mean ± std) across six math benchmarks using standardized evaluation (LightEval). Averages are automatically computed.
+    </p>
+    <div class="flex justify-center gap-4 mb-6 flex-wrap">
+        <a href="https://your-paper-link.com" target="_blank"
+        class="px-4 py-2 flex items-center gap-2 bg-pink-100 text-pink-800 text-sm rounded hover:bg-pink-200 transition border border-pink-200 shadow-sm">
+        <i class="fas fa-file-alt"></i>
+        Paper
+        </a>
+        <a href="https://your-code-link.com" target="_blank"
+        class="px-4 py-2 flex items-center gap-2 bg-blue-100 text-blue-800 text-sm rounded hover:bg-blue-200 transition border border-blue-200 shadow-sm">
+        <i class="fab fa-github"></i>
+        Code
+        </a>
+    </div>
     </div>
 
-    <div class="flex flex-col md:flex-row mb-6 gap-4">
-      <div id="groupFilterContainer" class="md:w-1/2">
-        <label for="groupFilter" class="block text-sm font-medium text-gray-700 mb-1">Filter by Model Group:</label>
-        <select id="groupFilter" class="border border-gray-300 rounded px-3 py-2 w-full">
-          <option value="">All model groups</option>
-        </select>
-      </div>
-    </div>
 
-    <div class="mb-4 flex flex-wrap gap-2">
-      <button id="highlightBest" class="px-3 py-1 bg-blue-100 text-blue-800 rounded hover:bg-blue-200 text-sm">Highlight Best Scores</button>
-      <button id="resetHighlights" class="px-3 py-1 bg-gray-100 text-gray-800 rounded hover:bg-gray-200 text-sm">Reset Highlights</button>
+<!-- Unified controls bar -->
+<div id="controlsBar" class="flex flex-wrap items-end justify-between gap-4 mb-6">
+    <!-- Filter dropdown -->
+    <div class="flex flex-col">
+      <label for="groupFilter" class="text-sm font-medium text-gray-700 mb-1">Filter by Model Group:</label>
+      <select id="groupFilter" class="border border-gray-300 rounded px-3 py-2 w-64">
+        <option value="">All model groups</option>
+      </select>
     </div>
+  
+    <!-- Highlight buttons -->
+    <div class="flex gap-2">
+      <button id="highlightBest" class="px-3 py-2 bg-green-100 text-green-800 rounded hover:bg-green-200 text-sm border border-green-200 shadow-sm">
+        Highlight Best
+      </button>
+      <button id="resetHighlights" class="px-3 py-2 bg-yellow-100 text-yellow-800 rounded hover:bg-yellow-200 text-sm border border-yellow-200 shadow-sm">
+        Reset
+      </button>
+    </div>
+  
+    <!-- Placeholder for search bar -->
+    <div id="customSearchContainer" class="ml-auto"></div>
+  </div>
+  
+  
 
+    <!-- Table -->
     <div class="overflow-x-auto shadow-md rounded-lg">
       <table id="modelTable" class="display stripe w-full text-sm">
         <thead>
@@ -84,128 +118,123 @@
           </tr>
         </thead>
         <tbody id="modelBody">
-          <!-- Auto-filled by JS -->
+          <!-- Populated dynamically -->
         </tbody>
       </table>
     </div>
   </div>
 
   <script>
-$(document).ready(function () {
     $.getJSON("data.json", function(modelData) {
-  const tbody = $("#modelBody");
-  const groups = new Set();
+      const tbody = $("#modelBody");
+      const groups = new Set();
 
-  modelData.forEach(model => {
-    groups.add(model.basedOn);
+      modelData.forEach(model => {
+        groups.add(model.basedOn);
 
-    const scores = [
-      model.aime24,
-      model.aime25,
-      model.amc23,
-      model.math500,
-      model.minerva,
-      model.olympiad
-    ];
+        const scores = [
+          model.aime24,
+          model.aime25,
+          model.amc23,
+          model.math500,
+          model.minerva,
+          model.olympiad
+        ];
 
-    const avg =
-      scores
-        .map(s => parseFloat(s.split("±")[0]))
-        .filter(n => !isNaN(n))
-        .reduce((a, b) => a + b, 0) / scores.length;
+        const avg =
+          scores
+            .map(s => parseFloat(s.split("±")[0]))
+            .filter(n => !isNaN(n))
+            .reduce((a, b) => a + b, 0) / scores.length;
 
-    const row = $("<tr>")
-      .addClass("group-row")
-      .attr("data-group", model.basedOn);
-    row.append(`<td class="model-name">${model.name}</td>`);
-    row.append(`<td>${model.organization}</td>`);
-    row.append(`<td>${model.basedOn}</td>`);
-    row.append(`<td><a href="${model.paperLink}" target="_blank">${model.paperText}</a></td>`);
-    row.append(`<td>${model.aime24}</td>`);
-    row.append(`<td>${model.aime25}</td>`);
-    row.append(`<td>${model.amc23}</td>`);
-    row.append(`<td>${model.math500}</td>`);
-    row.append(`<td>${model.minerva}</td>`);
-    row.append(`<td>${model.olympiad}</td>`);
-    row.append(`<td>${avg.toFixed(1)}</td>`);
-    tbody.append(row);
-  });
+        const row = $("<tr>")
+          .addClass("group-row")
+          .attr("data-group", model.basedOn);
+        row.append(`<td class="model-name">${model.name}</td>`);
+        row.append(`<td>${model.organization}</td>`);
+        row.append(`<td>${model.basedOn}</td>`);
+        row.append(`<td><a href="${model.paperLink}" target="_blank">${model.paperText}</a></td>`);
+        row.append(`<td>${model.aime24}</td>`);
+        row.append(`<td>${model.aime25}</td>`);
+        row.append(`<td>${model.amc23}</td>`);
+        row.append(`<td>${model.math500}</td>`);
+        row.append(`<td>${model.minerva}</td>`);
+        row.append(`<td>${model.olympiad}</td>`);
+        row.append(`<td>${avg.toFixed(1)}</td>`);
+        tbody.append(row);
+      });
 
-  groups.forEach(group => {
-    $("#groupFilter").append(`<option value="${group}">${group}</option>`);
-  });
+      groups.forEach(group => {
+        $("#groupFilter").append(`<option value="${group}">${group}</option>`);
+      });
 
-  initTable();
-});
+      initTable();
+    });
 
-
-  function initTable() {
-    const table = $('#modelTable').DataTable({
-      columnDefs: [
-        { targets: [2], visible: false },
-        {
-          targets: [4, 5, 6, 7, 8, 9, 10],
-          render: function (data, type) {
-            if (type === 'sort' || type === 'type') {
-              return parseFloat(data.split('±')[0]);
+    function initTable() {
+      const table = $('#modelTable').DataTable({
+        columnDefs: [
+          {
+            targets: [4, 5, 6, 7, 8, 9, 10],
+            render: function (data, type) {
+              if (type === 'sort' || type === 'type') {
+                return parseFloat(data.split('±')[0]);
+              }
+              return data;
             }
-            return data;
+          }
+        ],
+        order: [[2, 'asc'], [10, 'desc']],
+        rowGroup: {
+          dataSrc: 2,
+          startRender: function (rows, group) {
+            return $('<tr class="group-header"/>')
+              .append(`<td colspan="10">Based on: ${group}</td>`);
+          }
+        },
+        paging: false,
+        info: true,
+        ordering: true,
+        searching: true
+      });
+      // Move the search bar into our custom flex container
+        $('#customSearchContainer').append($('#modelTable_filter'));
+        $('#modelTable_filter label').addClass('flex items-center gap-2');
+        $('#modelTable_filter input').addClass('px-3 py-2 border border-gray-300 rounded bg-white text-sm shadow-sm w-64');
+
+
+      $('#groupFilter').on('change', function () {
+        const val = $(this).val();
+        table.column(2).search(val, false, false).draw();
+      });
+
+      $('#highlightBest').on('click', function () {
+        $('.best-score').removeClass('best-score');
+        for (let col = 4; col <= 9; col++) {
+          let bestScore = -1;
+          let bestIdx = -1;
+          table.rows({ search: 'applied' }).every(function (idx) {
+            const score = parseFloat(this.data()[col].split('±')[0]);
+            if (!isNaN(score) && score > bestScore) {
+              bestScore = score;
+              bestIdx = idx;
+            }
+          });
+          if (bestIdx >= 0) {
+            $(table.cell(bestIdx, col).node()).addClass('best-score');
           }
         }
-      ],
-      order: [[2, 'asc'], [10, 'desc']],
-      rowGroup: {
-        dataSrc: 2,
-        startRender: function (rows, group) {
-          return $('<tr class="group-header"/>')
-            .append(`<td colspan="10">Based on: ${group}</td>`);
-        }
-      },
-      paging: false,
-      info: true,
-      ordering: true,
-      searching: true
-    });
+      });
 
-    $('#groupFilter').on('change', function () {
-      const val = $(this).val();
-      table.column(2).search(val, true, false).draw();
-    });
+      $('#resetHighlights').on('click', function () {
+        $('.best-score').removeClass('best-score');
+        $('.highlight-row').removeClass('highlight-row');
+      });
 
-    $('#highlightBest').on('click', function () {
-      $('.best-score').removeClass('best-score');
-      for (let col = 4; col <= 9; col++) {
-        let bestScore = -1;
-        let bestIdx = -1;
-        table.rows({ search: 'applied' }).every(function (idx) {
-          const score = parseFloat(this.data()[col].split('±')[0]);
-          if (!isNaN(score) && score > bestScore) {
-            bestScore = score;
-            bestIdx = idx;
-          }
-        });
-        if (bestIdx >= 0) {
-          $(table.cell(bestIdx, col).node()).addClass('best-score');
-        }
-      }
-    });
-
-    $('#resetHighlights').on('click', function () {
-      $('.best-score').removeClass('best-score');
-      $('.highlight-row').removeClass('highlight-row');
-    });
-
-    $('#modelTable tbody').on('click', 'tr.group-row', function () {
-      $(this).toggleClass('highlight-row');
-    });
-
-    $('#toggleCaption').on('click', function () {
-      $('#caption').toggleClass('hidden');
-      $(this).text($('#caption').hasClass('hidden') ? 'Show caption' : 'Hide caption');
-    });
-  }
-});
-
+      $('#modelTable tbody').on('click', 'tr.group-row', function () {
+        $(this).toggleClass('highlight-row');
+      });
+    }
   </script>
 </body>
 </html>
