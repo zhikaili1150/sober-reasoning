@@ -61,9 +61,7 @@ Replace `--task` with the appropriate benchmark specification (e.g., `aime24`, `
 - Pre-built Docker image on Docker Hub
 - Code to recreate the plots in the paper
 
-## 🔄 Citing This Work
-
-If you use these logs or results in your own work, please cite:
+## 🔄 Citation
 
 ```bibtex
 @misc{hochlehnert2025soberreasoning,
