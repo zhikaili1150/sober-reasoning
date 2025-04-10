@@ -4,7 +4,8 @@ This repository hosts evaluation code from our paper:
 
 **"A Sober Look at Progress in Language Model Reasoning: Pitfalls and Paths to Reproducibility"**
 
-📊 [Leaderboard](https://bethgelab.github.io/sober_reasoning/)  
+📄 [Paper](https://arxiv.org/abs/2504.07086v1)  
+📊 [Leaderboard](https://bethgelab.github.io/sober-reasoning/)  
 🧪 [HuggingFace Dataset Page](https://huggingface.co/datasets/bethgelab/sober_reasoning)
 
 ## 🚀 Quickstart: Running an Evaluation
@@ -59,4 +60,20 @@ Replace `--task` with the appropriate benchmark specification (e.g., `aime24`, `
 
 - Pre-built Docker image on Docker Hub
 - Code to recreate the plots in the paper
+
+## 🔄 Citing This Work
+
+If you use these logs or results in your own work, please cite:
+
+```bibtex
+@misc{hochlehnert2025soberreasoning,
+      title={A Sober Look at Progress in Language Model Reasoning: Pitfalls and Paths to Reproducibility}, 
+      author={Andreas Hochlehnert and Hardik Bhatnagar and Vishaal Udandarao and Samuel Albanie and Ameya Prabhu and Matthias Bethge},
+      year={2025},
+      eprint={2504.07086},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2504.07086}, 
+}
+```
 
