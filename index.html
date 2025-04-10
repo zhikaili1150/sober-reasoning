@@ -92,28 +92,52 @@
 
   <script>
 $(document).ready(function () {
-  $.getJSON("data.json", function(modelData) {
-    const tbody = $("#modelBody");
-    const groups = new Set();
+    $.getJSON("data.json", function(modelData) {
+  const tbody = $("#modelBody");
+  const groups = new Set();
 
-    modelData.forEach(model => {
-      groups.add(model.basedOn);
-      const row = $("<tr>").addClass("group-row").attr("data-group", model.basedOn);
-      row.append(`<td class="model-name">${model.name}</td>`);
-      row.append(`<td>${model.org}</td>`);
-      row.append(`<td>${model.basedOn}</td>`);
-      row.append(`<td><a href="${model.paper}" target="_blank">Link</a></td>`);
-      model.scores.forEach(score => row.append(`<td>${score}</td>`));
-      tbody.append(row);
-    });
+  modelData.forEach(model => {
+    groups.add(model.basedOn);
 
-    // Fill filter dropdown
-    groups.forEach(group => {
-      $("#groupFilter").append(`<option value="${group}">${group}</option>`);
-    });
+    const scores = [
+      model.aime24,
+      model.aime25,
+      model.amc23,
+      model.math500,
+      model.minerva,
+      model.olympiad
+    ];
 
-    initTable();
+    const avg =
+      scores
+        .map(s => parseFloat(s.split("±")[0]))
+        .filter(n => !isNaN(n))
+        .reduce((a, b) => a + b, 0) / scores.length;
+
+    const row = $("<tr>")
+      .addClass("group-row")
+      .attr("data-group", model.basedOn);
+    row.append(`<td class="model-name">${model.name}</td>`);
+    row.append(`<td>${model.organization}</td>`);
+    row.append(`<td>${model.basedOn}</td>`);
+    row.append(`<td><a href="${model.paperLink}" target="_blank">${model.paperText}</a></td>`);
+    row.append(`<td>${model.aime24}</td>`);
+    row.append(`<td>${model.aime25}</td>`);
+    row.append(`<td>${model.amc23}</td>`);
+    row.append(`<td>${model.math500}</td>`);
+    row.append(`<td>${model.minerva}</td>`);
+    row.append(`<td>${model.olympiad}</td>`);
+    row.append(`<td>${avg.toFixed(1)}</td>`);
+    tbody.append(row);
   });
+
+  groups.forEach(group => {
+    $("#groupFilter").append(`<option value="${group}">${group}</option>`);
+  });
+
+  initTable();
+});
+
 
   function initTable() {
     const table = $('#modelTable').DataTable({
