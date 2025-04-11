@@ -250,11 +250,11 @@
           model.olympiad
         ];
 
-        const avg =
-          scores
-            .map(s => parseFloat(s.split("±")[0]))
-            .filter(n => !isNaN(n))
-            .reduce((a, b) => a + b, 0) / scores.length;
+        const validScores = scores
+        .map(s => parseFloat(s.split("±")[0]))
+        .filter(n => !isNaN(n));
+
+        const avg = validScores.reduce((a, b) => a + b, 0) / validScores.length;
 
         const row = $("<tr>")
           .addClass("group-row")

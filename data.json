@@ -403,8 +403,8 @@
     "olympiad": "55.6±1.4"
   },
   {
-    "name": "OpenThinker2-7B",
-    "organization": "open-thoughts",
+    "name": "OpenR1-Qwen-7B",
+    "organization": "open-r1",
     "basedOn": "Qwen2.5 7B (SFT)",
     "paperLink": "https://www.open-thoughts.ai/",
     "paperText": "Website",
@@ -415,9 +415,10 @@
     "minerva": "-",
     "olympiad": "-"
   },
+  
   {
-    "name": "OpenR1-Qwen-7B",
-    "organization": "open-r1",
+    "name": "OpenThinker2-7B",
+    "organization": "open-thoughts",
     "basedOn": "Qwen2.5 7B (SFT)",
     "paperLink": "https://github.com/huggingface/open-r1/",
     "paperText": "GitHub",
