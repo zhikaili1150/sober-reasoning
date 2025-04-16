@@ -26,7 +26,7 @@
     "olympiad": "52.5±1.3"
   },
   {
-    "name": "L1-Qwen-1.5B-Max'",
+    "name": "L1-Qwen-1.5B-Max",
     "organization": "l3lab",
     "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
     "paperLink": "https://arxiv.org/abs/2503.04697",
@@ -415,7 +415,7 @@
     "minerva": "-",
     "olympiad": "-"
   },
-  
+
   {
     "name": "OpenThinker2-7B",
     "organization": "open-thoughts",
