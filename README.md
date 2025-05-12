@@ -1,4 +1,6 @@
 # 🧠 Sober Reasoning: Evaluation Code
+> 🚨 Update 12/05/2025: 32B models added to the leaderboard, more to come soon! 
+
 
 This repository hosts evaluation code from our paper:
 
@@ -7,6 +9,7 @@ This repository hosts evaluation code from our paper:
 📄 [Paper](https://arxiv.org/abs/2504.07086v1)  
 📊 [Leaderboard](https://bethgelab.github.io/sober-reasoning/)  
 🧪 [HuggingFace Dataset Page](https://huggingface.co/datasets/bethgelab/sober_reasoning)
+
 
 ## 🚀 Quickstart: Running an Evaluation
 

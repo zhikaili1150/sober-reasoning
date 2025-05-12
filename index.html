@@ -258,17 +258,17 @@
         groups.add(model.basedOn);
 
         const scores = [
-          model.aime24,
-          model.aime25,
-          model.amc23,
-          model.math500,
-          model.minerva,
-          model.olympiad
-        ];
+          model.aime24 || "-",
+          model.aime25 || "-",
+          model.amc23 || "-",
+          model.math500 || "-",
+          model.minerva || "-",
+          model.olympiad || "-"
+      ];
 
-        const validScores = scores
-        .map(s => parseFloat(s.split("±")[0]))
-        .filter(n => !isNaN(n));
+      const validScores = scores
+    .map(s => parseFloat((s || "0").split("±")[0]))
+    .filter(n => !isNaN(n));
 
         const avg = validScores.reduce((a, b) => a + b, 0) / validScores.length;
 
@@ -287,12 +287,13 @@
         }
 
 
-        row.append(`<td>${model.aime24}</td>`);
-        row.append(`<td>${model.aime25}</td>`);
-        row.append(`<td>${model.amc23}</td>`);
-        row.append(`<td>${model.math500}</td>`);
-        row.append(`<td>${model.minerva}</td>`);
-        row.append(`<td>${model.olympiad}</td>`);
+        row.append(`<td>${model.aime24 || "-"}</td>`);
+        row.append(`<td>${model.aime25 || "-"}</td>`);
+        row.append(`<td>${model.amc23 || "-"}</td>`);
+        row.append(`<td>${model.math500 || "-"}</td>`);
+        row.append(`<td>${model.minerva || "-"}</td>`);
+        row.append(`<td>${model.olympiad || "-"}</td>`);
+
         row.append(`<td>${avg.toFixed(1)}</td>`);
         tbody.append(row);
       });
