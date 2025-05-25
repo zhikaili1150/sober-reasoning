@@ -107,10 +107,11 @@
       color: #7D2E46; /* Burgundy-600 */
     }
 
-    .best-score {
-      font-weight: bold;
-      color: #047857; /* Emerald-700 */
-    }
+.best-score {
+  font-weight: 800;
+  color: #065F46; /* Emerald-800 */
+  background: linear-gradient(transparent 60%, #D1FAE5 60%);
+}
 
     .highlight-row {
       background-color: #FEF9C3 !important; /* Amber-100 */
@@ -354,7 +355,10 @@
             }
           });
           if (bestIdx >= 0) {
-            $(table.cell(bestIdx, col).node()).addClass('best-score');
+            const cell = $(table.cell(bestIdx, col).node());
+            const content = cell.text().trim();
+            cell.html(`<span class="best-score">${content}</span>`);
+
           }
         }
       });

@@ -145,7 +145,7 @@
   {
     "name": "Light-R1-7B-DS",
     "organization": "qihoo360",
-    "basedOn": "Deepseek R1 Distill Qwen 7B (RL)",
+    "basedOn": "Deepseek R1 Distill Qwen 7B (SFT)",
     "paperLink": "https://arxiv.org/abs/2503.10460",
     "paperText": "",
     "aime24": "53.0±4.8",
@@ -582,7 +582,8 @@
     "aime25": "66.0±6.6",
     "amc23": "97.8±2.2",
     "math500": "97.2±0.4",
-    "minerva": "48.5±0.5"
+    "minerva": "48.5±0.5",
+    "olympiad": "76.3±1.2"
   },
   {
     "name": "s1.1-32B",
