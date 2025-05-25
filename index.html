@@ -54,14 +54,14 @@
   <style>
     body {
       font-size: 1rem;
-      color: #334155; /* Slate-700 */
+      color: #334155;
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
       background-color: #FFFFFF;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      color: #1E293B; /* Slate-900 */
+      color: #1E293B;
     }
 
     .model-name {
@@ -77,12 +77,12 @@
       font-weight: 600;
       font-size: 0.875rem;
       padding: 12px 8px;
-      background-color: #F1F5F9; /* Slate-100 with hint of blue */
-      color: #1E293B; /* Slate-900 */
+      background-color: #F1F5F9;
+      color: #1E293B;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* soft shadow when scrolling */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     table.dataTable td {
@@ -92,29 +92,30 @@
     }
 
     table.dataTable.stripe tbody tr.odd {
-      background-color: #F8FAFC; /* Slate-50 */
+      background-color: #F8FAFC;
     }
 
     table.dataTable tbody tr:hover {
-      background-color: #FBF0F4 !important; /* Burgundy-50 */
+      background-color: #FBF0F4 !important;
     }
 
     .group-header {
       font-size: 0.95rem;
       padding: 8px 12px;
       font-weight: 600;
-      background-color: #F7E8ED !important; /* Burgundy-100 */
-      color: #7D2E46; /* Burgundy-600 */
+      background-color: #F7E8ED !important;
+      color: #7D2E46;
     }
 
-.best-score {
-  font-weight: 800;
-  color: #065F46; /* Emerald-800 */
-  background: linear-gradient(transparent 60%, #D1FAE5 60%);
-}
+    .best-score {
+      font-weight: 800;
+      color: #065F46;
+      background: linear-gradient(transparent 60%, #D1FAE5 60%);
+
+    }
 
     .highlight-row {
-      background-color: #FEF9C3 !important; /* Amber-100 */
+      background-color: #FEF9C3 !important;
     }
 
     .dataTables_wrapper .dataTables_filter {
@@ -124,48 +125,48 @@
 
     .dataTables_wrapper .dataTables_filter input {
       font-size: 0.875rem;
-      border-color: #D1D5DB; /* Gray-300 */
+      border-color: #D1D5DB;
       border-radius: 0.375rem;
     }
 
     .paper-btn {
-      background-color: #F7E8ED; /* Burgundy-100 */
-      color: #7D2E46; /* Burgundy-600 */
-      border-color: #D27A96; /* Burgundy-400 */
+      background-color: #F7E8ED;
+      color: #7D2E46;
+      border-color: #D27A96;
     }
 
     .paper-btn:hover {
-      background-color: #EFCFD9; /* Burgundy-200 */
+      background-color: #EFCFD9;
     }
 
     .github-btn {
-      background-color: #EEF2F7; /* Navy-50 */
-      color: #1A365D; /* Navy-600 */
-      border-color: #5B85B6; /* Navy-400 */
+      background-color: #EEF2F7;
+      color: #1A365D;
+      border-color: #5B85B6;
     }
 
     .github-btn:hover {
-      background-color: #D9E2ED; /* Navy-100 */
+      background-color: #D9E2ED;
     }
 
     .highlight-btn {
-      background-color: #ECFDF5; /* Emerald-50 */
-      color: #14532D; /* Emerald-800 */
-      border-color: #34D399; /* Emerald-400 */
+      background-color: #ECFDF5;
+      color: #14532D;
+      border-color: #34D399;
     }
 
     .highlight-btn:hover {
-      background-color: #D1FAE5; /* Emerald-100 */
+      background-color: #D1FAE5;
     }
 
     .reset-btn {
-      background-color: #FEF9C3; /* Amber-100 */
-      color: #92400E; /* Amber-800 */
-      border-color: #FCD34D; /* Amber-300 */
+      background-color: #FEF9C3;
+      color: #92400E;
+      border-color: #FCD34D;
     }
 
     .reset-btn:hover {
-      background-color: #FEF3C7; /* Amber-200 */
+      background-color: #FEF3C7;
     }
   </style>
 </head>
@@ -173,21 +174,19 @@
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-6">
       <h1 class="text-5xl font-bold mb-3 tracking-tight text-slate-900"> Sober Reasoning Leaderboard 🍷</h1>
-
-    <div class="text-base text-slate-700 mb-3">
-      <p>
-        <a href="https://x.com/ahochlehnert" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Andreas Hochlehnert*</a><sup>1</sup>,
-        <a href="https://x.com/hrdkbhatnagar" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Hardik Bhatnagar*</a><sup>1</sup>,
-        <a href="https://vishaal27.github.io/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Vishaal Udandarao</a><sup>1,2</sup>,
-        <a href="https://samuelalbanie.com/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Samuel Albanie</a>,
-        <a href="https://drimpossible.github.io/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Ameya Prabhu</a><sup>1</sup>,
-        <a href="https://scholar.google.de/citations?user=0z0fNxUAAAAJ&hl=en" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Matthias Bethge</a><sup>1</sup>
-      </p>
-      <p class="text-sm text-slate-500">
-        <sup>1</sup>Tübingen AI Center - University of Tübingen &nbsp;&nbsp; <sup>2</sup>University of Cambridge
-      </p>
-    </div>
-
+      <div class="text-base text-slate-700 mb-3">
+        <p>
+          <a href="https://x.com/ahochlehnert" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Andreas Hochlehnert*</a><sup>1</sup>,
+          <a href="https://x.com/hrdkbhatnagar" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Hardik Bhatnagar*</a><sup>1</sup>,
+          <a href="https://vishaal27.github.io/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Vishaal Udandarao</a><sup>1,2</sup>,
+          <a href="https://samuelalbanie.com/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Samuel Albanie</a>,
+          <a href="https://drimpossible.github.io/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Ameya Prabhu</a><sup>1</sup>,
+          <a href="https://scholar.google.de/citations?user=0z0fNxUAAAAJ&hl=en" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Matthias Bethge</a><sup>1</sup>
+        </p>
+        <p class="text-sm text-slate-500">
+          <sup>1</sup>Tübingen AI Center - University of Tübingen &nbsp;&nbsp; <sup>2</sup>University of Cambridge
+        </p>
+      </div>
 
       <p class="text-base text-slate-600 max-w-2xl mx-auto mb-4">
         Evaluation reports Pass@1 accuracy (mean ± std) across six math benchmarks using standardized evaluation. The scores are across 10 seeds for AIME24, AIME25, and AMC23; and across 3 seeds for MATH500, Minerva and OlympiadBench.
@@ -243,9 +242,7 @@
             <th>Average</th>
           </tr>
         </thead>
-        <tbody id="modelBody">
-          <!-- Populated dynamically -->
-        </tbody>
+        <tbody id="modelBody"></tbody>
       </table>
     </div>
   </div>
@@ -265,11 +262,11 @@
           model.math500 || "-",
           model.minerva || "-",
           model.olympiad || "-"
-      ];
+        ];
 
-      const validScores = scores
-    .map(s => parseFloat((s || "0").split("±")[0]))
-    .filter(n => !isNaN(n));
+        const validScores = scores
+          .map(s => parseFloat((s || "0").split("±")[0]))
+          .filter(n => !isNaN(n));
 
         const avg = validScores.reduce((a, b) => a + b, 0) / validScores.length;
 
@@ -280,13 +277,12 @@
         row.append(`<td>${model.organization}</td>`);
         row.append(`<td>${model.basedOn}</td>`);
         if (model.paperLink && model.paperText) {
-        row.append(`<td><a href="${model.paperLink}" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">${model.paperText}</a></td>`);
+          row.append(`<td><a href="${model.paperLink}" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">${model.paperText}</a></td>`);
         } else if (model.paperLink) {
-        row.append(`<td><a href="${model.paperLink}" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">arXiv</a></td>`);
+          row.append(`<td><a href="${model.paperLink}" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">arXiv</a></td>`);
         } else {
-        row.append(`<td>-</td>`);
+          row.append(`<td>-</td>`);
         }
-
 
         row.append(`<td>${model.aime24 || "-"}</td>`);
         row.append(`<td>${model.aime25 || "-"}</td>`);
@@ -294,7 +290,6 @@
         row.append(`<td>${model.math500 || "-"}</td>`);
         row.append(`<td>${model.minerva || "-"}</td>`);
         row.append(`<td>${model.olympiad || "-"}</td>`);
-
         row.append(`<td>${avg.toFixed(1)}</td>`);
         tbody.append(row);
       });
@@ -305,6 +300,26 @@
 
       initTable();
     });
+
+    function highlightBestScores(table) {
+      $('.best-score').removeClass('best-score');
+      for (let col = 4; col <= 9; col++) {
+        let bestScore = -1;
+        let bestIdx = -1;
+        table.rows({ search: 'applied' }).every(function (idx) {
+          const score = parseFloat(this.data()[col].split('±')[0]);
+          if (!isNaN(score) && score > bestScore) {
+            bestScore = score;
+            bestIdx = idx;
+          }
+        });
+        if (bestIdx >= 0) {
+          const cell = $(table.cell(bestIdx, col).node());
+          const content = cell.text().trim();
+          cell.html(`<span class="best-score">${content}</span>`);
+        }
+      }
+    }
 
     function initTable() {
       const table = $('#modelTable').DataTable({
@@ -319,7 +334,7 @@
             }
           }
         ],
-        order: [[2, 'asc'], [10, 'desc']],
+        order: [[10, 'desc']],
         rowGroup: {
           dataSrc: 2,
           startRender: function (rows, group) {
@@ -333,6 +348,8 @@
         searching: true
       });
 
+      highlightBestScores(table);
+
       $('#customSearchContainer').append($('#modelTable_filter'));
       $('#modelTable_filter label').addClass('flex items-center gap-2');
       $('#modelTable_filter input').addClass('px-3 py-2 border border-gray-300 rounded bg-white text-sm shadow-sm w-64 focus:ring-burgundy-500 focus:border-burgundy-500');
@@ -343,28 +360,14 @@
       });
 
       $('#highlightBest').on('click', function () {
-        $('.best-score').removeClass('best-score');
-        for (let col = 4; col <= 9; col++) {
-          let bestScore = -1;
-          let bestIdx = -1;
-          table.rows({ search: 'applied' }).every(function (idx) {
-            const score = parseFloat(this.data()[col].split('±')[0]);
-            if (!isNaN(score) && score > bestScore) {
-              bestScore = score;
-              bestIdx = idx;
-            }
-          });
-          if (bestIdx >= 0) {
-            const cell = $(table.cell(bestIdx, col).node());
-            const content = cell.text().trim();
-            cell.html(`<span class="best-score">${content}</span>`);
-
-          }
-        }
+        highlightBestScores(table);
       });
 
       $('#resetHighlights').on('click', function () {
-        $('.best-score').removeClass('best-score');
+        $('.best-score').each(function () {
+          const text = $(this).text();
+          $(this).parent().html(text);
+        });
         $('.highlight-row').removeClass('highlight-row');
       });
 
