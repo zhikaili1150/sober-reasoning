@@ -111,7 +111,7 @@
       font-weight: 800;
       color: #065F46;
       background: linear-gradient(transparent 60%, #D1FAE5 60%);
-
+      text-shadow: 0 0 2px rgba(16, 185, 129, 0.5);
     }
 
     .highlight-row {
@@ -214,12 +214,15 @@
       </div>
 
       <div class="flex gap-2">
-        <button id="highlightBest" class="highlight-btn px-3 py-2 rounded hover:bg-emerald-100 text-sm border shadow-sm">
-          Highlight Best
-        </button>
-        <button id="resetHighlights" class="reset-btn px-3 py-2 rounded hover:bg-amber-200 text-sm border shadow-sm">
-          Reset
-        </button>
+      <button
+        id="toggleHighlight"
+        class="px-3 py-2 min-w-[10rem] text-center justify-center rounded text-sm border shadow-sm flex items-center gap-2 bg-emerald-50 text-emerald-800 border-emerald-400 transition-all"
+      >
+        <i class="fas fa-broom"></i>
+        Clear Highlights
+      </button>
+
+
       </div>
 
       <div id="customSearchContainer" class="ml-auto"></div>
@@ -350,6 +353,43 @@
 
       highlightBestScores(table);
 
+    let highlightsOn = true;
+
+    $('#toggleHighlight').on('click', function () {
+      const icon = $(this).find('i');
+
+      if (highlightsOn) {
+        // Remove highlights
+        $('.best-score').each(function () {
+          const text = $(this).text();
+          $(this).parent().html(text);
+        });
+        $('.highlight-row').removeClass('highlight-row');
+
+        $(this).contents().filter(function () { return this.nodeType === 3; }).remove();
+        $(this).append('Highlight Best');
+        icon.removeClass('fa-broom').addClass('fa-star');
+
+        $(this)
+          .removeClass('bg-emerald-50 text-emerald-800 border-emerald-400')
+          .addClass('bg-yellow-50 text-yellow-800 border-yellow-400');
+      } else {
+        // Reapply highlights
+        highlightBestScores(table);
+
+        $(this).contents().filter(function () { return this.nodeType === 3; }).remove();
+        $(this).append('Clear Highlights');
+        icon.removeClass('fa-star').addClass('fa-broom');
+
+        $(this)
+          .removeClass('bg-yellow-50 text-yellow-800 border-yellow-400')
+          .addClass('bg-emerald-50 text-emerald-800 border-emerald-400');
+      }
+
+      highlightsOn = !highlightsOn;
+    });
+
+
       $('#customSearchContainer').append($('#modelTable_filter'));
       $('#modelTable_filter label').addClass('flex items-center gap-2');
       $('#modelTable_filter input').addClass('px-3 py-2 border border-gray-300 rounded bg-white text-sm shadow-sm w-64 focus:ring-burgundy-500 focus:border-burgundy-500');
@@ -357,18 +397,6 @@
       $('#groupFilter').on('change', function () {
         const val = $(this).val();
         table.column(2).search(val, false, false).draw();
-      });
-
-      $('#highlightBest').on('click', function () {
-        highlightBestScores(table);
-      });
-
-      $('#resetHighlights').on('click', function () {
-        $('.best-score').each(function () {
-          const text = $(this).text();
-          $(this).parent().html(text);
-        });
-        $('.highlight-row').removeClass('highlight-row');
       });
 
       $('#modelTable tbody').on('click', 'tr.group-row', function () {
