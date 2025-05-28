@@ -52,12 +52,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-
-    #modelTable td, #modelTable th {
-  padding: 10px 8px !important;
-  font-size: 0.95rem !important;
-}
-
     body {
       font-size: 1rem;
       color: #334155;
@@ -180,36 +174,59 @@
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-6">
       <h1 class="text-5xl font-bold mb-3 tracking-tight text-slate-900"> Sober Reasoning Leaderboard 🍷</h1>
-      <!-- Authors & Affiliations -->
-      ...
+      <div class="text-base text-slate-700 mb-3">
+        <p>
+          <a href="https://x.com/ahochlehnert" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Andreas Hochlehnert*</a><sup>1</sup>,
+          <a href="https://x.com/hrdkbhatnagar" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Hardik Bhatnagar*</a><sup>1</sup>,
+          <a href="https://vishaal27.github.io/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Vishaal Udandarao</a><sup>1,2</sup>,
+          <a href="https://samuelalbanie.com/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Samuel Albanie</a>,
+          <a href="https://drimpossible.github.io/" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Ameya Prabhu</a><sup>1</sup>,
+          <a href="https://scholar.google.de/citations?user=0z0fNxUAAAAJ&hl=en" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">Matthias Bethge</a><sup>1</sup>
+        </p>
+        <p class="text-sm text-slate-500">
+          <sup>1</sup>Tübingen AI Center - University of Tübingen &nbsp;&nbsp; <sup>2</sup>University of Cambridge
+        </p>
+      </div>
+
+      <p class="text-base text-slate-600 max-w-2xl mx-auto mb-4">
+        Evaluation reports Pass@1 accuracy (mean ± std) across six math benchmarks using standardized evaluation. The scores are across 10 seeds for AIME24, AIME25, and AMC23; and across 3 seeds for MATH500, Minerva and OlympiadBench.
+      </p>
+      <div class="flex justify-center gap-4 mb-6 flex-wrap">
+        <a href="https://arxiv.org/pdf/2504.07086" target="_blank"
+           class="github-btn px-4 py-2 flex items-center gap-2 text-base rounded-lg hover:bg-navy-100 transition border shadow-sm">
+          <i class="fas fa-file-alt"></i>
+          Paper
+        </a>
+        <a href="https://github.com/bethgelab/sober-reasoning" target="_blank"
+           class="github-btn px-4 py-2 flex items-center gap-2 text-base rounded-lg hover:bg-navy-100 transition border shadow-sm">
+          <i class="fab fa-github"></i>
+          Code
+        </a>
+      </div>
     </div>
 
     <div id="controlsBar" class="flex flex-wrap items-end justify-between gap-4 mb-6">
-      <div class="flex flex-col">
-        <label for="groupFilter" class="text-sm font-medium text-slate-700 mb-1">Filter by Model Group:</label>
-        <select id="groupFilter" class="border border-gray-300 rounded px-3 py-2 w-64 focus:ring-burgundy-500 focus:border-burgundy-500">
-          <option value="">All model groups</option>
-        </select>
+      <div class="flex items-end gap-4">
+        <div class="flex flex-col">
+          <label for="groupFilter" class="text-sm font-medium text-slate-700 mb-1">Filter by Model Group:</label>
+          <select id="groupFilter" class="border border-gray-300 rounded px-3 py-2 w-64 focus:ring-burgundy-500 focus:border-burgundy-500">
+            <option value="">All model groups</option>
+          </select>
+        </div>
+        <!-- Technique filter buttons will be added here by JavaScript -->
+        <div id="techniqueFilterContainer" class="flex items-center gap-2"></div>
       </div>
 
-    <div class="flex flex-col">
-      <span class="text-sm font-medium text-slate-700 mb-1">Filter by Technique:</span>
-      <div class="flex gap-2">
-        <button data-technique="SFT" class="technique-btn px-3 py-1 rounded border text-sm shadow-sm bg-white text-slate-700 border-slate-300 hover:bg-slate-100">SFT</button>
-        <button data-technique="RL" class="technique-btn px-3 py-1 rounded border text-sm shadow-sm bg-white text-slate-700 border-slate-300 hover:bg-slate-100">RL</button>
-        <button data-technique="ALL" class="technique-btn px-3 py-1 rounded border text-sm shadow-sm bg-slate-800 text-white border-slate-800">All</button>
-      </div>
-    </div>
-
-
-      <div class="flex gap-2">
-        <button id="toggleHighlight" class="px-3 py-2 min-w-[10rem] text-center justify-center rounded text-sm border shadow-sm flex items-center gap-2 bg-emerald-50 text-emerald-800 border-emerald-400 transition-all">
+      <div class="flex items-end gap-4 ml-auto">
+        <div id="customSearchContainer"></div>
+        <button
+          id="toggleHighlight"
+          class="px-3 py-2 min-w-[10rem] text-center justify-center rounded text-sm border shadow-sm flex items-center gap-2 bg-emerald-50 text-emerald-800 border-emerald-400 transition-all"
+        >
           <i class="fas fa-broom"></i>
           Clear Highlights
         </button>
       </div>
-
-      <div id="customSearchContainer" class="ml-auto"></div>
     </div>
 
     <div class="overflow-x-auto shadow-md rounded-lg">
@@ -219,7 +236,7 @@
             <th>Model</th>
             <th>Organization</th>
             <th>Base Model</th>
-            <th>Technique</th>
+            <th>Method</th>
             <th>Link</th>
             <th>AIME'24</th>
             <th>AIME'25</th>
@@ -227,7 +244,7 @@
             <th>MATH500</th>
             <th>Minerva</th>
             <th>OlympiadBench</th>
-            <th>Average</th>
+            <th>Avg</th>
           </tr>
         </thead>
         <tbody id="modelBody"></tbody>
@@ -236,7 +253,7 @@
   </div>
 
   <script>
-    $.getJSON("data_converted.json", function(modelData) {
+    $.getJSON("data.json", function(modelData) {
       const tbody = $("#modelBody");
       const groups = new Set();
 
@@ -264,8 +281,7 @@
         row.append(`<td class="model-name">${model.name}</td>`);
         row.append(`<td>${model.organization}</td>`);
         row.append(`<td>${model.baseModel}</td>`);
-        row.append(`<td>${model.technique || "Base"}</td>`);
-
+        row.append(`<td>${model.technique || "-"}</td>`);
         if (model.paperLink && model.paperText) {
           row.append(`<td><a href="${model.paperLink}" target="_blank" class="text-burgundy-600 hover:text-burgundy-800 underline">${model.paperText}</a></td>`);
         } else if (model.paperLink) {
@@ -322,6 +338,18 @@
               }
               return data;
             }
+          },
+          {
+            targets: 2,
+            width: '25%'
+          },
+          {
+            targets: 3,
+            width: '5%'
+          },
+          {
+            targets: 0,
+            width: '20%'
           }
         ],
         order: [[11, 'desc']],
@@ -329,7 +357,7 @@
           dataSrc: 2,
           startRender: function (rows, group) {
             return $('<tr class="group-header"/>')
-              .append(`<td colspan="12">Based on: ${group}</td>`);
+              .append(`<td colspan="11">Base Model: ${group}</td>`);
           }
         },
         paging: false,
@@ -340,54 +368,87 @@
 
       highlightBestScores(table);
 
-      $('#toggleHighlight').on('click', function () {
-        const icon = $(this).find('i');
-
-        if ($(this).text().includes("Clear")) {
-          $('.best-score').each(function () {
-            const text = $(this).text();
-            $(this).parent().html(text);
-          });
-          $(this).html('<i class="fas fa-star"></i> Highlight Best');
-          $(this).removeClass('bg-emerald-50 text-emerald-800 border-emerald-400')
-                 .addClass('bg-yellow-50 text-yellow-800 border-yellow-400');
-        } else {
+      // Re-highlight best scores on table redraw (filter, sort, etc.)
+      table.on('draw', function() {
+        if (highlightsOn) { // Only re-highlight if highlights are currently enabled
           highlightBestScores(table);
-          $(this).html('<i class="fas fa-broom"></i> Clear Highlights');
-          $(this).removeClass('bg-yellow-50 text-yellow-800 border-yellow-400')
-                 .addClass('bg-emerald-50 text-emerald-800 border-emerald-400');
         }
       });
+
+    let highlightsOn = true;
+
+    $('#toggleHighlight').on('click', function () {
+      const icon = $(this).find('i');
+
+      if (highlightsOn) {
+        // Remove highlights
+        $('.best-score').each(function () {
+          const text = $(this).text();
+          $(this).parent().html(text);
+        });
+        $('.highlight-row').removeClass('highlight-row');
+
+        $(this).contents().filter(function () { return this.nodeType === 3; }).remove();
+        $(this).append('Highlight Best');
+        icon.removeClass('fa-broom').addClass('fa-star');
+
+        $(this)
+          .removeClass('bg-emerald-50 text-emerald-800 border-emerald-400')
+          .addClass('bg-yellow-50 text-yellow-800 border-yellow-400');
+      } else {
+        // Reapply highlights
+        highlightBestScores(table);
+
+        $(this).contents().filter(function () { return this.nodeType === 3; }).remove();
+        $(this).append('Clear Highlights');
+        icon.removeClass('fa-star').addClass('fa-broom');
+
+        $(this)
+          .removeClass('bg-yellow-50 text-yellow-800 border-yellow-400')
+          .addClass('bg-emerald-50 text-emerald-800 border-emerald-400');
+      }
+
+      highlightsOn = !highlightsOn;
+    });
+
 
       $('#customSearchContainer').append($('#modelTable_filter'));
       $('#modelTable_filter label').addClass('flex items-center gap-2');
       $('#modelTable_filter input').addClass('px-3 py-2 border border-gray-300 rounded bg-white text-sm shadow-sm w-64 focus:ring-burgundy-500 focus:border-burgundy-500');
 
       $('#groupFilter').on('change', function () {
-        table.column(2).search($(this).val(), false, false).draw();
+        const val = $(this).val();
+        table.column(2).search(val ? '^' + $.fn.dataTable.util.escapeRegex(val) + '$' : '', true, false).draw();
       });
-      $('.technique-btn').on('click', function () {
-        $('.technique-btn').removeClass('bg-slate-800 text-white border-slate-800').addClass('bg-white text-slate-700 border-slate-300');
-        $(this).removeClass('bg-white text-slate-700 border-slate-300').addClass('bg-slate-800 text-white border-slate-800');
-
-        const selected = $(this).data('technique');
-        if (selected === 'ALL') {
-          table.column(3).search('', false, false).draw();
-        } else {
-          table.column(3).search(`^${selected}$`, true, false).draw(); // Exact match
-        }
-      });
-
-
-      // $('#techniqueFilter').on('change', function () {
-      //   const val = $(this).val();
-      //   const searchVal = val === "Base" ? "^\\s*$" : val;
-      //   table.column(3).search(searchVal, true, false).draw(); // Regex for base
-      // });
 
       $('#modelTable tbody').on('click', 'tr.group-row', function () {
         $(this).toggleClass('highlight-row');
       });
+
+      // Add buttons for Technique filtering
+      const techniqueButtonsHtml = `
+        <div class="flex flex-col gap-1 ml-4">
+          <span class="text-sm font-medium text-slate-700 mb-1">Filter by Technique:</span>
+          <div class="flex items-center gap-2">
+            <button class="px-3 py-2 rounded text-sm border shadow-sm transition-all technique-filter-btn" data-technique="">All</button>
+            <button class="px-3 py-2 rounded text-sm border shadow-sm transition-all technique-filter-btn" data-technique="SFT">SFT</button>
+            <button class="px-3 py-2 rounded text-sm border shadow-sm transition-all technique-filter-btn" data-technique="RL">RL</button>
+          </div>
+        </div>
+      `;
+      $('#techniqueFilterContainer').append(techniqueButtonsHtml);
+
+      // Add click handlers for the technique filter buttons
+      $('.technique-filter-btn').on('click', function () {
+        const technique = $(this).data('technique');
+        // Filter by Technique (column index 3)
+        table.column(3).search(technique ? '^' + $.fn.dataTable.util.escapeRegex(technique) + '$' : '', true, false).draw();
+        // Update button styles to indicate active filter
+        $('.technique-filter-btn').removeClass('bg-burgundy-600 text-white').addClass('bg-white text-burgundy-600 border-burgundy-600');
+        $(this).removeClass('bg-white text-burgundy-600 border-burgundy-600').addClass('bg-burgundy-600 text-white');
+      });
+      // Initialize button style for 'All' as active
+      $('.technique-filter-btn[data-technique=""]').removeClass('bg-white text-burgundy-600 border-burgundy-600').addClass('bg-burgundy-600 text-white');
     }
   </script>
 </body>
