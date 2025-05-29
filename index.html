@@ -213,7 +213,7 @@
     <div id="controlsBar" class="flex flex-wrap items-end justify-between gap-4 mb-6">
       <div class="flex items-end gap-4">
         <div class="flex flex-col">
-          <label for="groupFilter" class="text-sm font-medium text-slate-700 mb-1">Filter by Model Group:</label>
+          <label for="groupFilter" class="text-sm font-medium text-slate-700 mb-1">Filter by Base Model:</label>
           <select id="groupFilter" class="border border-gray-300 rounded px-3 py-2 w-64 focus:ring-burgundy-500 focus:border-burgundy-500">
             <option value="">All model groups</option>
           </select>
@@ -287,11 +287,17 @@
         // Normalize strings for comparison (remove non-alphanumeric and convert to lowercase)
         const normalizeString = (str) => str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 
+        // Store the original base model for filtering
+        const originalBaseModel = model.baseModel;
+
         if (normalizeString(model.name) === normalizeString(model.baseModel)) {
           row.addClass("base-model-row");
           model.technique = "-"; // Set technique to '-' for base models
           model.baseModel = "-"; // Set baseModel to '-' for base models
         }
+
+        // Add original base model data to the row for custom filtering
+        row.data('originalBaseModel', originalBaseModel);
 
         row.append(`<td class="model-name">${model.name}</td>`);
         row.append(`<td>${model.organization}</td>`);
@@ -431,9 +437,27 @@
       $('#modelTable_filter label').addClass('flex items-center gap-2');
       $('#modelTable_filter input').addClass('px-3 py-2 border border-gray-300 rounded bg-white text-sm shadow-sm w-64 focus:ring-burgundy-500 focus:border-burgundy-500');
 
+      let currentGroupFilter = ''; // Variable to store the current group filter
+
+      // Add a custom DataTables filter for Model Group
+      $.fn.dataTable.ext.search.push(
+        function(settings, data, dataIndex, rowData) {
+          const originalBaseModel = $(settings.aoData[dataIndex].nTr).data('originalBaseModel');
+
+          // If no group filter is selected, show all rows
+          if (currentGroupFilter === '') {
+            return true;
+          }
+
+          // Show rows whose original base model matches the filter
+          return originalBaseModel === currentGroupFilter;
+        }
+      );
+
       $('#groupFilter').on('change', function () {
         const val = $(this).val();
-        table.column(2).search(val ? '^' + $.fn.dataTable.util.escapeRegex(val) + '$' : '', true, false).draw();
+        currentGroupFilter = val; // Update the group filter variable
+        table.draw(); // Redraw the table to apply the custom group filter
       });
 
       $('#modelTable tbody').on('click', 'tr.group-row', function () {
