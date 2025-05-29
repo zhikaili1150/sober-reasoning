@@ -168,6 +168,11 @@
     .reset-btn:hover {
       background-color: #FEF3C7;
     }
+
+    .base-model-row {
+      background-color: #FBF0F4 !important; /* Burgundy 50 */
+      font-weight: 400; /* Normal font weight */
+    }
   </style>
 </head>
 <body class="bg-white text-gray-700 p-6">
@@ -278,6 +283,14 @@
         const row = $("<tr>")
           .addClass("group-row")
           .attr("data-group", model.baseModel);
+
+        // Normalize strings for comparison (remove non-alphanumeric and convert to lowercase)
+        const normalizeString = (str) => str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
+        if (normalizeString(model.name) === normalizeString(model.baseModel)) {
+          row.addClass("base-model-row");
+        }
+
         row.append(`<td class="model-name">${model.name}</td>`);
         row.append(`<td>${model.organization}</td>`);
         row.append(`<td>${model.baseModel}</td>`);
