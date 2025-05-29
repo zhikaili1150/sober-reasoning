@@ -632,7 +632,7 @@
   {
     "name": "INTELLECT-2",
     "organization": "PrimeIntellect",
-    "baseModel": "Qwen QwQ 32B",
+    "baseModel": "QwQ 32B",
     "technique": "RL",
     "paperLink": "https://www.primeintellect.ai/intellect-2",
     "paperText": "Blog",
@@ -716,7 +716,7 @@
   {
     "name": "QwQ-32B",
     "organization": "Qwen",
-    "baseModel": "Qwen QwQ 32B",
+    "baseModel": "QwQ 32B",
     "technique": "RL",
     "paperLink": "https://qwenlm.github.io/blog/qwq-32b/",
     "paperText": "Blog",

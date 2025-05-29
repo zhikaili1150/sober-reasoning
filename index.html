@@ -290,6 +290,7 @@
         if (normalizeString(model.name) === normalizeString(model.baseModel)) {
           row.addClass("base-model-row");
           model.technique = "-"; // Set technique to '-' for base models
+          model.baseModel = "-"; // Set baseModel to '-' for base models
         }
 
         row.append(`<td class="model-name">${model.name}</td>`);
