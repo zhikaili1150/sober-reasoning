@@ -289,6 +289,7 @@
 
         if (normalizeString(model.name) === normalizeString(model.baseModel)) {
           row.addClass("base-model-row");
+          model.technique = "-"; // Set technique to '-' for base models
         }
 
         row.append(`<td class="model-name">${model.name}</td>`);
@@ -451,17 +452,46 @@
       `;
       $('#techniqueFilterContainer').append(techniqueButtonsHtml);
 
+      // Initialize button style for 'All' as active
+      $('.technique-filter-btn[data-technique=""]').removeClass('bg-white text-burgundy-600 border-burgundy-600').addClass('bg-burgundy-600 text-white');
+
+      let currentTechniqueFilter = ''; // Variable to store the current technique filter
+
+      // Normalize strings for comparison (remove non-alphanumeric and convert to lowercase)
+      const normalizeString = (str) => str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
+      // Add a custom DataTables filter
+      $.fn.dataTable.ext.search.push(
+        function(settings, data, dataIndex) {
+          const modelName = data[0]; // Assuming model name is in the first column
+          const baseModel = data[2]; // Assuming base model is in the third column
+          const technique = data[3]; // Assuming technique is in the fourth column
+
+          const isBaseModel = normalizeString(modelName) === normalizeString(baseModel);
+
+          // If no filter is selected, show all rows
+          if (currentTechniqueFilter === '') {
+            return true;
+          }
+
+          // If a filter is selected, show base models and rows matching the filter
+          if (isBaseModel) {
+            return true;
+          }
+
+          return technique === currentTechniqueFilter;
+        }
+      );
+
       // Add click handlers for the technique filter buttons
       $('.technique-filter-btn').on('click', function () {
         const technique = $(this).data('technique');
-        // Filter by Technique (column index 3)
-        table.column(3).search(technique ? '^' + $.fn.dataTable.util.escapeRegex(technique) + '$' : '', true, false).draw();
+        currentTechniqueFilter = technique; // Update the filter variable
+        table.draw(); // Redraw the table to apply the custom filter
         // Update button styles to indicate active filter
         $('.technique-filter-btn').removeClass('bg-burgundy-600 text-white').addClass('bg-white text-burgundy-600 border-burgundy-600');
         $(this).removeClass('bg-white text-burgundy-600 border-burgundy-600').addClass('bg-burgundy-600 text-white');
       });
-      // Initialize button style for 'All' as active
-      $('.technique-filter-btn[data-technique=""]').removeClass('bg-white text-burgundy-600 border-burgundy-600').addClass('bg-burgundy-600 text-white');
     }
   </script>
 </body>
