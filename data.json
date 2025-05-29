@@ -2,7 +2,8 @@
   {
     "name": "DeepSeek-R1-Distill-Qwen-1.5B",
     "organization": "deepseek-ai",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "",
     "paperLink": "https://arxiv.org/abs/2501.12948",
     "paperText": "",
     "aime24": "28.7±4.8",
@@ -15,7 +16,8 @@
   {
     "name": "L1-Qwen-1.5B-Exact",
     "organization": "l3lab",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.04697",
     "paperText": "",
     "aime24": "24.4±3.3",
@@ -28,7 +30,8 @@
   {
     "name": "L1-Qwen-1.5B-Max",
     "organization": "l3lab",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.04697",
     "paperText": "",
     "aime24": "27.7±4.2",
@@ -41,7 +44,8 @@
   {
     "name": "Open-RS1",
     "organization": "knoveleng",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.16219",
     "paperText": "",
     "aime24": "28.9±6.0",
@@ -54,7 +58,8 @@
   {
     "name": "Open-RS2",
     "organization": "knoveleng",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.16219",
     "paperText": "",
     "aime24": "31.3±7.7",
@@ -67,7 +72,8 @@
   {
     "name": "Open-RS3",
     "organization": "knoveleng",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.16219",
     "paperText": "",
     "aime24": "29.7±4.6",
@@ -80,7 +86,8 @@
   {
     "name": "II-Thought-1.5B-Preview",
     "organization": "Intelligent Internet",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://zesty-scooter-4fb.notion.site/II-Thought-RL-v0-1b2c1620efd7800ba7f5ddd860720b15",
     "paperText": "Blog",
     "aime24": "32.0±5.9",
@@ -93,7 +100,8 @@
   {
     "name": "FastCurl-1.5B-Preview",
     "organization": "Nickyang",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.17287",
     "paperText": "",
     "aime24": "36.3±4.6",
@@ -106,7 +114,8 @@
   {
     "name": "DeepScaleR-1.5B-Preview",
     "organization": "agentica-org",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://pretty-radio-b75.notion.site/DeepScaleR-Surpassing-O1-Preview-with-a-1-5B-Model-by-Scaling-RL-19681902c1468005bed8ca303013a4e2",
     "paperText": "Blog",
     "aime24": "37.0±6.6",
@@ -119,7 +128,8 @@
   {
     "name": "DeepSeek-R1-Distill-Qwen-7B",
     "organization": "deepseek-ai",
-    "basedOn": "Deepseek R1 Distill Qwen 7B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 7B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/pdf/2501.12948",
     "paperText": "",
     "aime24": "52.3±6.3",
@@ -132,7 +142,8 @@
   {
     "name": "Light-R1-7B-DS",
     "organization": "qihoo360",
-    "basedOn": "Deepseek R1 Distill Qwen 7B (SFT)",
+    "baseModel": "Deepseek R1 Distill Qwen 7B",
+    "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2503.10460",
     "paperText": "",
     "aime24": "53.0±4.8",
@@ -145,7 +156,8 @@
   {
     "name": "Qwen2.5-Math-1.5B",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 Math 1.5B (RL)",
+    "baseModel": "Qwen2.5 Math 1.5B",
+    "technique": "",
     "paperLink": "https://arxiv.org/abs/2409.12122",
     "paperText": "",
     "aime24": "11.3±3.6",
@@ -158,7 +170,8 @@
   {
     "name": "Qwen2.5-Math-1.5B-Oat-Zero",
     "organization": "sail",
-    "basedOn": "Qwen2.5 Math 1.5B (RL)",
+    "baseModel": "Qwen2.5 Math 1.5B",
+    "technique": "RL",
     "paperLink": "https://oatllm.notion.site/oat-zero",
     "paperText": "Blog",
     "aime24": "16.0±3.2",
@@ -171,7 +184,8 @@
   {
     "name": "Qwen2.5-Math-1.5B-Instruct",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 Math 1.5B (RL)",
+    "baseModel": "Qwen2.5 Math 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2409.12122",
     "paperText": "",
     "aime24": "12.0±1.7",
@@ -184,7 +198,8 @@
   {
     "name": "Qwen2.5-Math-7B",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 Math 7B (RL)",
+    "baseModel": "Qwen2.5 Math 7B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2409.12122",
     "paperText": "",
     "aime24": "20.7±3.8",
@@ -197,7 +212,8 @@
   {
     "name": "Qwen-2.5-Math-7B-SimpleRL-Zoo",
     "organization": "hkust-nlp",
-    "basedOn": "Qwen2.5 Math 7B (RL)",
+    "baseModel": "Qwen2.5 Math 7B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.18892",
     "paperText": "",
     "aime24": "22.7±5.2",
@@ -210,7 +226,8 @@
   {
     "name": "LIMR",
     "organization": "GAIR",
-    "basedOn": "Qwen2.5 Math 7B (RL)",
+    "baseModel": "Qwen2.5 Math 7B",
+    "technique": "RL",
     "paperLink": "https://www.arxiv.org/pdf/2502.11886",
     "paperText": "",
     "aime24": "30.7±3.2",
@@ -223,7 +240,8 @@
   {
     "name": "Qwen2.5-Math-7B-Oat-Zero",
     "organization": "sail",
-    "basedOn": "Qwen2.5 Math 7B (RL)",
+    "baseModel": "Qwen2.5 Math 7B",
+    "technique": "RL",
     "paperLink": "https://oatllm.notion.site/oat-zero",
     "paperText": "Blog",
     "aime24": "28.0±3.1",
@@ -236,7 +254,8 @@
   {
     "name": "Qwen2.5-Math-7B-Instruct",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 Math 7B (RL)",
+    "baseModel": "Qwen2.5 Math 7B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2409.12122",
     "paperText": "",
     "aime24": "15.7±3.9",
@@ -249,7 +268,8 @@
   {
     "name": "Qwen2.5-1.5B",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 1.5B (RL)",
+    "baseModel": "Qwen2.5 1.5B",
+    "technique": "RL",
     "paperLink": "https://qwenlm.github.io/blog/qwen2.5/",
     "paperText": "Blog",
     "aime24": "0.0±0.0",
@@ -262,7 +282,8 @@
   {
     "name": "Qwen-2.5-1.5B-SimpleRL-Zoo",
     "organization": "hkust-nlp",
-    "basedOn": "Qwen2.5 1.5B (RL)",
+    "baseModel": "Qwen2.5 1.5B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.18892",
     "paperText": "",
     "aime24": "0.3±1.1",
@@ -275,7 +296,8 @@
   {
     "name": "Qwen2.5-1.5B-Instruct",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 1.5B (RL)",
+    "baseModel": "Qwen2.5 1.5B",
+    "technique": "RL",
     "paperLink": "https://qwenlm.github.io/blog/qwen2.5/",
     "paperText": "Blog",
     "aime24": "1.3±1.7",
@@ -288,7 +310,8 @@
   {
     "name": "Qwen2.5-7B",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 7B (RL)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "RL",
     "paperLink": "https://qwenlm.github.io/blog/qwen2.5/",
     "paperText": "Blog",
     "aime24": "3.3±3.3",
@@ -300,8 +323,9 @@
   },
   {
     "name": "Qwen-2.5-7B-SimpleRL-Zoo",
-    "organization": "Zeng et al.",
-    "basedOn": "Qwen2.5 7B (RL)",
+    "organization": "hkust-nlp",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.18892",
     "paperText": "",
     "aime24": "14.0±2.1",
@@ -314,7 +338,8 @@
   {
     "name": "Open-Reasoner-Zero-7B",
     "organization": "Open-Reasoner-Zero",
-    "basedOn": "Qwen2.5 7B (RL)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.24290",
     "paperText": "",
     "aime24": "19.7±2.9",
@@ -327,7 +352,8 @@
   {
     "name": "Qwen2.5-7B-Instruct",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 7B (RL)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "RL",
     "paperLink": "https://qwenlm.github.io/blog/qwen2.5/",
     "paperText": "Blog",
     "aime24": "12.3±3.2",
@@ -340,7 +366,8 @@
   {
     "name": "Eurus-2-7B-PRIME",
     "organization": "PRIME-RL",
-    "basedOn": "Qwen2.5 7B (SFT)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2502.01456",
     "paperText": "",
     "aime24": "17.8±2.2",
@@ -353,7 +380,8 @@
   {
     "name": "s1.1-7B",
     "organization": "simplescaling",
-    "basedOn": "Qwen2.5 7B (SFT)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2501.19393",
     "paperText": "",
     "aime24": "19.0±3.2",
@@ -366,7 +394,8 @@
   {
     "name": "Bespoke-Stratos-7B",
     "organization": "bespokelabs",
-    "basedOn": "Qwen2.5 7B (SFT)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "SFT",
     "paperLink": "https://www.bespokelabs.ai/blog/bespoke-stratos-the-unreasonable-effectiveness-of-reasoning-distillation",
     "paperText": "Blog",
     "aime24": "20.3±4.3",
@@ -379,7 +408,8 @@
   {
     "name": "OpenThinker-7B",
     "organization": "open-thoughts",
-    "basedOn": "Qwen2.5 7B (SFT)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/launch",
     "paperText": "Blog",
     "aime24": "30.5±6.2",
@@ -392,7 +422,8 @@
   {
     "name": "OpenR1-Qwen-7B",
     "organization": "open-r1",
-    "basedOn": "Qwen2.5 7B (SFT)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "SFT",
     "paperLink": "https://github.com/huggingface/open-r1/",
     "paperText": "GitHub",
     "aime24": "48.3±8.9",
@@ -402,11 +433,11 @@
     "minerva": "37.4±4.3",
     "olympiad": "56.5±11.9"
   },
-
   {
     "name": "OpenThinker2-7B",
     "organization": "open-thoughts",
-    "basedOn": "Qwen2.5 7B (SFT)",
+    "baseModel": "Qwen2.5 7B",
+    "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/thinkagain",
     "paperText": "Blog",
     "aime24": "53.0±4.6",
@@ -416,12 +447,13 @@
     "minerva": "33.9±0.2",
     "olympiad": "46.9±1.3"
   },
-
   {
     "name": "DAPO-Qwen-32B",
     "organization": "BytedTsinghua-SIA",
-    "basedOn": "Qwen2.5 32B (RL)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "RL",
     "paperLink": "https://dapo-sia.github.io/",
+    "paperText": "",
     "aime24": "43.0±4.0",
     "aime25": "32.3±6.1",
     "amc23": "88.5±3.6",
@@ -432,7 +464,8 @@
   {
     "name": "LIMO",
     "organization": "GAIR",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://arxiv.org/pdf/2502.03387",
     "paperText": "",
     "aime24": "57.8±4.7",
@@ -445,7 +478,8 @@
   {
     "name": "Sky-T1-32B-Preview",
     "organization": "NovaSky-AI",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://novasky-ai.github.io/posts/sky-t1/",
     "paperText": "Blog",
     "aime24": "37.0±8.1",
@@ -458,7 +492,8 @@
   {
     "name": "Sky-T1-7B",
     "organization": "NovaSky-AI",
-    "basedOn": "Qwen2.5 Math 7B (SFT+RL)",
+    "baseModel": "Qwen2.5 Math 7B",
+    "technique": "RL",
     "paperLink": "https://novasky-ai.github.io/posts/sky-t1-7B/",
     "paperText": "Blog",
     "aime24": "19.3±2.6",
@@ -471,7 +506,8 @@
   {
     "name": "Sky-T1-mini",
     "organization": "NovaSky-AI",
-    "basedOn": "Deepseek R1 Distill Qwen 7B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 7B",
+    "technique": "RL",
     "paperLink": "https://novasky-ai.github.io/posts/sky-t1-7B/",
     "paperText": "Blog",
     "aime24": "51.3±4.5",
@@ -484,7 +520,8 @@
   {
     "name": "STILL-3-1.5B-preview",
     "organization": "RUC-AIBOX",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://github.com/RUCAIBox/Slow_Thinking_with_LLMs?tab=readme-ov-file#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl",
     "paperText": "GitHub",
     "aime24": "34.7±5.5",
@@ -497,7 +534,8 @@
   {
     "name": "ZR1-1.5B",
     "organization": "Zyphra",
-    "basedOn": "Deepseek R1 Distill Qwen 1.5B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
     "paperLink": "https://huggingface.co/Zyphra/ZR1-1.5B",
     "paperText": "HF",
     "aime24": "30.3±4.6",
@@ -510,7 +548,8 @@
   {
     "name": "Bespoke-Stratos-32B",
     "organization": "bespokelabs",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://www.bespokelabs.ai/blog/bespoke-stratos-the-unreasonable-effectiveness-of-reasoning-distillation",
     "paperText": "Blog",
     "aime24": "37.7±5.9",
@@ -523,7 +562,8 @@
   {
     "name": "DeepSeek-R1-Distill-Qwen-32B",
     "organization": "deepseek-ai",
-    "basedOn": "Deepseek R1 Distill Qwen 32B (SFT)",
+    "baseModel": "Deepseek R1 Distill Qwen 32B",
+    "technique": "SFT",
     "paperLink": "https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf",
     "paperText": "",
     "aime24": "67.0±1.9",
@@ -536,7 +576,8 @@
   {
     "name": "OpenThinker-32B",
     "organization": "open-thoughts",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/scale",
     "paperText": "Blog",
     "aime24": "68.5±6.7",
@@ -549,7 +590,8 @@
   {
     "name": "Light-R1-32B-DS",
     "organization": "qihoo360",
-    "basedOn": "Deepseek R1 Distill Qwen 32B (SFT)",
+    "baseModel": "Deepseek R1 Distill Qwen 32B",
+    "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2503.10460",
     "paperText": "",
     "aime24": "76.7±4.7",
@@ -562,7 +604,8 @@
   {
     "name": "TinyR1-32B-Preview",
     "organization": "qihoo360",
-    "basedOn": "Deepseek R1 Distill Qwen 32B (SFT)",
+    "baseModel": "Deepseek R1 Distill Qwen 32B",
+    "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2503.04872",
     "paperText": "",
     "aime24": "73.3±4.4",
@@ -575,7 +618,8 @@
   {
     "name": "s1.1-32B",
     "organization": "simplescaling",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2501.19393",
     "paperText": "",
     "aime24": "61.3±6.9",
@@ -588,7 +632,8 @@
   {
     "name": "INTELLECT-2",
     "organization": "PrimeIntellect",
-    "basedOn": "Qwen QwQ 32B (RL)",
+    "baseModel": "QwQ 32B",
+    "technique": "RL",
     "paperLink": "https://www.primeintellect.ai/intellect-2",
     "paperText": "Blog",
     "aime24": "75.2±2.4",
@@ -601,7 +646,8 @@
   {
     "name": "OpenThinker2-32B",
     "organization": "open-thoughts",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/thinkagain",
     "paperText": "Blog",
     "aime24": "71.3±6.5",
@@ -614,7 +660,8 @@
   {
     "name": "Light-R1-14B-DS",
     "organization": "qihoo360",
-    "basedOn": "Deepseek R1 Distill Qwen 14B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 14B",
+    "technique": "RL",
     "paperLink": "https://arxiv.org/abs/2503.10460",
     "paperText": "",
     "aime24": "73.0±6.0",
@@ -627,7 +674,8 @@
   {
     "name": "Qwen2.5-32B",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://qwenlm.github.io/blog/qwen2.5/",
     "paperText": "Blog",
     "aime24": "8.0±5.5",
@@ -640,7 +688,8 @@
   {
     "name": "Qwen2.5-32B-Instruct",
     "organization": "Qwen",
-    "basedOn": "Qwen2.5 32B (SFT)",
+    "baseModel": "Qwen2.5 32B",
+    "technique": "SFT",
     "paperLink": "https://qwenlm.github.io/blog/qwen2.5/",
     "paperText": "Blog",
     "aime24": "15.7±4.7",
@@ -653,7 +702,8 @@
   {
     "name": "DeepSeek-R1-Distill-Qwen-14B",
     "organization": "deepseek-ai",
-    "basedOn": "Deepseek R1 Distill Qwen 14B (RL)",
+    "baseModel": "Deepseek R1 Distill Qwen 14B",
+    "technique": "RL",
     "paperLink": "https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf",
     "paperText": "",
     "aime24": "69.3±5.8",
@@ -666,13 +716,15 @@
   {
     "name": "QwQ-32B",
     "organization": "Qwen",
-    "basedOn": "Qwen QwQ 32B (RL)",
+    "baseModel": "QwQ 32B",
+    "technique": "RL",
     "paperLink": "https://qwenlm.github.io/blog/qwq-32b/",
     "paperText": "Blog",
     "aime24": "76.3±3.3",
     "aime25": "69.0±4.5",
     "amc23": "96.2±2.4",
     "math500": "97.5±0.6",
-    "minerva": "49.0±0.2"
+    "minerva": "49.0±0.2",
+    "olympiad": ""
   }
 ]
