@@ -314,12 +314,12 @@
     "technique": "RL",
     "paperLink": "https://qwenlm.github.io/blog/qwen2.5/",
     "paperText": "Blog",
-    "aime24": "3.3±3.3",
-    "aime25": "0.0±0.0",
-    "amc23": "30.0±9.0",
-    "math500": "64.6±1.0",
-    "minerva": "25.7±0.9",
-    "olympiad": "30.1±1.2"
+    "aime24": "8.0±3.2",
+    "aime25": "3.7±3.7",
+    "amc23": "35.8±4.9",
+    "math500": "59.7±0.3",
+    "minerva": "21.4±1.9",
+    "olympiad": "27.0±1.0"
   },
   {
     "name": "Qwen-2.5-7B-SimpleRL-Zoo",
