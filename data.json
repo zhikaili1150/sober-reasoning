@@ -366,7 +366,7 @@
   {
     "name": "Eurus-2-7B-PRIME",
     "organization": "PRIME-RL",
-    "baseModel": "Qwen2.5 7B",
+    "baseModel": "Qwen2.5 7B Instruct",
     "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2502.01456",
     "paperText": "",
@@ -380,7 +380,7 @@
   {
     "name": "s1.1-7B",
     "organization": "simplescaling",
-    "baseModel": "Qwen2.5 7B",
+    "baseModel": "Qwen2.5 7B Instruct",
     "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2501.19393",
     "paperText": "",
@@ -394,7 +394,7 @@
   {
     "name": "Bespoke-Stratos-7B",
     "organization": "bespokelabs",
-    "baseModel": "Qwen2.5 7B",
+    "baseModel": "Qwen2.5 7B Instruct",
     "technique": "SFT",
     "paperLink": "https://www.bespokelabs.ai/blog/bespoke-stratos-the-unreasonable-effectiveness-of-reasoning-distillation",
     "paperText": "Blog",
@@ -408,7 +408,7 @@
   {
     "name": "OpenThinker-7B",
     "organization": "open-thoughts",
-    "baseModel": "Qwen2.5 7B",
+    "baseModel": "Qwen2.5 7B Instruct",
     "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/launch",
     "paperText": "Blog",
@@ -422,7 +422,7 @@
   {
     "name": "OpenR1-Qwen-7B",
     "organization": "open-r1",
-    "baseModel": "Qwen2.5 7B",
+    "baseModel": "Qwen2.5 7B Instruct",
     "technique": "SFT",
     "paperLink": "https://github.com/huggingface/open-r1/",
     "paperText": "GitHub",
@@ -436,7 +436,7 @@
   {
     "name": "OpenThinker2-7B",
     "organization": "open-thoughts",
-    "baseModel": "Qwen2.5 7B",
+    "baseModel": "Qwen2.5 7B Instruct",
     "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/thinkagain",
     "paperText": "Blog",
@@ -464,7 +464,7 @@
   {
     "name": "LIMO",
     "organization": "GAIR",
-    "baseModel": "Qwen2.5 32B",
+    "baseModel": "Qwen2.5 32B Instruct",
     "technique": "SFT",
     "paperLink": "https://arxiv.org/pdf/2502.03387",
     "paperText": "",
@@ -478,7 +478,7 @@
   {
     "name": "Sky-T1-32B-Preview",
     "organization": "NovaSky-AI",
-    "baseModel": "Qwen2.5 32B",
+    "baseModel": "Qwen2.5 32B Instruct",
     "technique": "SFT",
     "paperLink": "https://novasky-ai.github.io/posts/sky-t1/",
     "paperText": "Blog",
@@ -576,7 +576,7 @@
   {
     "name": "OpenThinker-32B",
     "organization": "open-thoughts",
-    "baseModel": "Qwen2.5 32B",
+    "baseModel": "Qwen2.5 32B Instruct",
     "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/scale",
     "paperText": "Blog",
@@ -618,7 +618,7 @@
   {
     "name": "s1.1-32B",
     "organization": "simplescaling",
-    "baseModel": "Qwen2.5 32B",
+    "baseModel": "Qwen2.5 32B Instruct",
     "technique": "SFT",
     "paperLink": "https://arxiv.org/abs/2501.19393",
     "paperText": "",
@@ -646,7 +646,7 @@
   {
     "name": "OpenThinker2-32B",
     "organization": "open-thoughts",
-    "baseModel": "Qwen2.5 32B",
+    "baseModel": "Qwen2.5 32B Instruct",  
     "technique": "SFT",
     "paperLink": "https://www.open-thoughts.ai/blog/thinkagain",
     "paperText": "Blog",
@@ -726,5 +726,118 @@
     "math500": "97.5±0.6",
     "minerva": "49.0±0.2",
     "olympiad": "78.1±1.0"
+  },
+
+  {
+    "name": "LUFFY-Qwen-Math-1.5B-Zero",
+    "organization": "Elliott",
+    "baseModel": "Qwen2.5 Math 1.5B",
+    "technique": "RL",
+    "paperLink": "https://arxiv.org/abs/2504.14945",
+    "paperText": "",
+    "aime24": "15.9±4.9",
+    "aime25": "11.7±2.8",
+    "amc23": "54.5±5.4",
+    "math500": "77.6±1.2",
+    "minerva": "27.2±0.4",
+    "olympiad": "42.3±0.5"
+  },
+  {
+    "name": "LUFFY-Qwen-Math-7B-Zero",
+    "organization": "Elliott",
+    "baseModel": "Qwen2.5 Math 7B",
+    "technique": "RL",
+    "paperLink": "https://arxiv.org/abs/2504.14945",
+    "paperText": "",
+    "aime24": "26.7±6.5",
+    "aime25": "23.3±5.7",
+    "amc23": "73.5±3.9",
+    "math500": "87.9±0.1",
+    "minerva": "34.1±2.2",
+    "olympiad": "54.9±0.3"
+  },
+  {
+    "name": "Skywork-OR1-7B",
+    "organization": "Skywork",
+    "baseModel": "Deepseek R1 Distill Qwen 7B",
+    "technique": "RL",
+    "paperLink": "https://capricious-hydrogen-41c.notion.site/Skywork-Open-Reaonser-Series-1d0bc9ae823a80459b46c149e4f51680",
+    "paperText": "Blog",
+    "aime24": "60.7±4.7",
+    "aime25": "49.7±6.2",
+    "amc23": "94.0±3.8",
+    "math500": "95.7±0.9",
+    "minerva": "43.0±1.0",
+    "olympiad": "73.6±0.9"
+  },
+  {
+    "name": "DisCO-1.5B-logL",
+    "organization": "ganglii",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
+    "paperLink": "https://arxiv.org/abs/2505.12366",
+    "paperText": "",
+    "aime24": "39.0±4.5",
+    "aime25": "31.7±4.8",
+    "amc23": "78.8±3.4",
+    "math500": "87.4±1.1",
+    "minerva": "32.7±1.3",
+    "olympiad": "58.6±0.3"
+  },
+  {
+    "name": "DisCO-7B-logL",
+    "organization": "ganglii",
+    "baseModel": "Deepseek R1 Distill Qwen 7B",
+    "technique": "RL",
+    "paperLink": "https://arxiv.org/abs/2505.12366",
+    "paperText": "",
+    "aime24": "51.3±3.9",
+    "aime25": "41.3±4.5",
+    "amc23": "92.2±2.2",
+    "math500": "94.0±1.3",
+    "minerva": "44.7±1.1",
+    "olympiad": "67.6±0.3"
+  },
+  {
+    "name": "Nemotron-Research-Reasoning-Qwen-1.5B",
+    "organization": "nvidia",
+    "baseModel": "Deepseek R1 Distill Qwen 1.5B",
+    "technique": "RL",
+    "paperLink": "https://arxiv.org/abs/2505.24864",
+    "paperText": "",
+    "aime24": "48.3±6.3",
+    "aime25": "33.0±5.1",
+    "amc23": "87.0±4.8",
+    "math500": "91.0±0.5",
+    "minerva": "37.5±1.6",
+    "olympiad": "62.8±0.9"
+  },
+  {
+    "name": "OpenThinker3-7B",
+    "organization": "open-thoughts",
+    "baseModel": "Qwen2.5 7B Instruct",
+    "technique": "SFT",
+    "paperLink": "https://www.openthoughts.ai/blog/ot3",
+    "paperText": "Blog",
+    "aime24": "66.7±5.2",
+    "aime25": "57.0±6.4",
+    "amc23": "91.8±2.6",
+    "math500": "95.9±0.6",
+    "minerva": "42.8±0.8",
+    "olympiad": "74.8±0.8"
+  },
+  {
+    "name": "gpt-oss-20b (med)",
+    "organization": "openai",
+    "baseModel": "gpt-oss",
+    "technique": "RL",
+    "paperLink": "https://openai.com/index/introducing-gpt-oss/",
+    "paperText": "Blog",
+    "aime24": "75.7±5.0",
+    "aime25": "72.7±5.4",
+    "amc23": "97.0±3.3",
+    "math500": "96.5±0.8",
+    "minerva": "45.1±1.1",
+    "olympiad": "77.0±0.7"
   }
 ]
