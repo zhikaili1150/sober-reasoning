@@ -10,6 +10,21 @@ This repository hosts evaluation code from our paper:
 📊 [Leaderboard](https://bethgelab.github.io/sober-reasoning/)  
 🧪 [HuggingFace Dataset Page](https://huggingface.co/datasets/bethgelab/sober_reasoning)
 
+## Installation:
+
+```bash
+conda create -y -n sober python=3.10
+conda activate sober
+
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+pip install vllm==0.7.2
+pip install setuptools
+pip install flash-attn --no-build-isolation
+pip install lighteval==0.8.1
+pip install math-verify==0.5.2
+pip install datasets==3.6.0
+# pip uninstall fsspec s3fs
+```
 
 ## 🚀 Quickstart: Running an Evaluation
 
