@@ -76,7 +76,6 @@ gpqa_metric = multilingual_extractive_match_metric(
     precision=5,
 )
 
-
 def math_prompt_fn(line, task_name: str = None):
     return Doc(
         task_name=task_name,
@@ -135,6 +134,14 @@ def gpqa_prompt_fn(line, task_name: str = None):
         choices=["A", "B", "C", "D"],
         gold_index=gold_index,
         instruction=query,
+    )
+
+def math_validation_prompt_fn(line, task_name: str = None):
+    return Doc(
+        task_name=task_name,
+        query=MATH_QUERY_TEMPLATE.format(Question=line["problem"]),
+        choices=[line["answer"]],
+        gold_index=0,
     )
 
 
@@ -240,6 +247,209 @@ olympiadbench = LightevalTaskConfig(
     version=1,
 )
 
+
+# Define tasks
+aime24_val = LightevalTaskConfig(
+    name="aime24_val",
+    suite=["custom"],
+    prompt_function=aime_prompt_fn,
+    hf_repo="HuggingFaceH4/aime_2024",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[expr_gold_metric],
+    version=1,
+)
+aime25_val = LightevalTaskConfig(
+    name="aime25_val",
+    suite=["custom"],
+    prompt_function=aime_prompt_fn,
+    hf_repo="yentinglin/aime_2025",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[expr_gold_metric],
+    version=1,
+)
+math_500_val = LightevalTaskConfig(
+    name="math_500_val",
+    suite=["custom"],
+    prompt_function=math_prompt_fn,
+    hf_repo="HuggingFaceH4/MATH-500",
+    hf_subset="default",
+    hf_avail_splits=["test"],
+    evaluation_splits=["test"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+minerva_val = LightevalTaskConfig(
+    name="minerva_val",
+    suite=["custom"],
+    prompt_function=minerva_prompt_fn,
+    hf_repo="knoveleng/Minerva-Math",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+amc23_val = LightevalTaskConfig(
+    name="amc23_val",
+    suite=["custom"],
+    prompt_function=amc_prompt_fn,
+    hf_repo="knoveleng/AMC-23",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[expr_gold_metric],
+    version=1,
+)
+olympiadbench_val = LightevalTaskConfig(
+    name="olympiadbench_val",
+    suite=["custom"],
+    prompt_function=olympiadbench_prompt_fn,
+    hf_repo="knoveleng/OlympiadBench",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+
+# Define tasks
+aime24_val_7B = LightevalTaskConfig(
+    name="aime24_val_7B",
+    suite=["custom"],
+    prompt_function=aime_prompt_fn,
+    hf_repo="HuggingFaceH4/aime_2024",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[expr_gold_metric],
+    version=1,
+)
+aime25_val_7B = LightevalTaskConfig(
+    name="aime25_val_7B",
+    suite=["custom"],
+    prompt_function=aime_prompt_fn,
+    hf_repo="yentinglin/aime_2025",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[expr_gold_metric],
+    version=1,
+)
+math_500_val_7B = LightevalTaskConfig(
+    name="math_500_val_7B",
+    suite=["custom"],
+    prompt_function=math_prompt_fn,
+    hf_repo="HuggingFaceH4/MATH-500",
+    hf_subset="default",
+    hf_avail_splits=["test"],
+    evaluation_splits=["test"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+minerva_val_7B = LightevalTaskConfig(
+    name="minerva_val_7B",
+    suite=["custom"],
+    prompt_function=minerva_prompt_fn,
+    hf_repo="knoveleng/Minerva-Math",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+amc23_val_7B = LightevalTaskConfig(
+    name="amc23_val_7B",
+    suite=["custom"],
+    prompt_function=amc_prompt_fn,
+    hf_repo="knoveleng/AMC-23",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[expr_gold_metric],
+    version=1,
+)
+olympiadbench_val_7B = LightevalTaskConfig(
+    name="olympiadbench_val_7B",
+    suite=["custom"],
+    prompt_function=olympiadbench_prompt_fn,
+    hf_repo="knoveleng/OlympiadBench",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+
+math_validation_v1 = LightevalTaskConfig(
+    name="math_validation_v1",
+    suite=["custom"],
+    prompt_function=math_validation_prompt_fn,
+    hf_repo="Zachary1150/math_validation_1.5B",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+
+math_validation_v2 = LightevalTaskConfig(
+    name="math_validation_v2",
+    suite=["custom"],
+    prompt_function=math_validation_prompt_fn,
+    hf_repo="Zachary1150/math_validation_7B",
+    hf_subset="default",
+    hf_avail_splits=["train"],
+    evaluation_splits=["train"],
+    few_shots_split=None,
+    few_shots_select=None,
+    generation_size=32768,
+    metric=[latex_gold_metric],
+    version=1,
+)
+
 # Add tasks to the table
 TASKS_TABLE = []
 TASKS_TABLE.append(aime24)
@@ -249,6 +459,24 @@ TASKS_TABLE.append(gpqa_diamond)
 TASKS_TABLE.append(minerva)
 TASKS_TABLE.append(amc23)
 TASKS_TABLE.append(olympiadbench)
+
+TASKS_TABLE.append(aime24_val)
+TASKS_TABLE.append(aime25_val)
+TASKS_TABLE.append(math_500_val)
+TASKS_TABLE.append(minerva_val)
+TASKS_TABLE.append(amc23_val)
+TASKS_TABLE.append(olympiadbench_val)
+
+TASKS_TABLE.append(aime24_val_7B)
+TASKS_TABLE.append(aime25_val_7B)
+TASKS_TABLE.append(math_500_val_7B)
+TASKS_TABLE.append(minerva_val_7B)
+TASKS_TABLE.append(amc23_val_7B)
+TASKS_TABLE.append(olympiadbench_val_7B)
+
+TASKS_TABLE.append(math_validation_v1)
+TASKS_TABLE.append(math_validation_v2)
+
 
 # MODULE LOGIC
 if __name__ == "__main__":
