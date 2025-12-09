@@ -90,7 +90,7 @@ import pandas as pd
 
 if __name__ == "__main__":
     # === 参数设置 ===
-    parent_dir = "/local/scratch/zli2255/workspace/sober-reasoning/result/merge_method/dare_ties/accfmt/details"
+    parent_dir = "result/baselines_openrs/MRL4k_ROLLOUT4/details"
     output_csv = os.path.join(parent_dir, "summary.csv")
     model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
 
@@ -116,15 +116,15 @@ if __name__ == "__main__":
                 result = analyze_parquet_folder(folder_path, task, model_name)
 
                 # 宽表结构：两个字段
-                folder_dict[folder_name][f"{task}_length"] = result.get("avg_token_length", None)
                 folder_dict[folder_name][f"{task}_accuracy"] = result.get("avg_extractive_match", None)
+                folder_dict[folder_name][f"{task}_length"] = result.get("avg_token_length", None)
 
             except Exception as e:
                 print(f"⚠️ Failed: {folder_name} / {task}: {e}")
 
                 # 即使失败也留空，避免缺列
-                folder_dict[folder_name][f"{task}_length"] = None
                 folder_dict[folder_name][f"{task}_accuracy"] = None
+                folder_dict[folder_name][f"{task}_length"] = None
 
     # === 输出宽表 CSV ===
     df = pd.DataFrame(folder_dict.values())
