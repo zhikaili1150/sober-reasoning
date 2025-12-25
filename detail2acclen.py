@@ -90,7 +90,7 @@ import pandas as pd
 
 if __name__ == "__main__":
     # === 参数设置 ===
-    parent_dir = "result/baselines_openrs/MRL4k_ROLLOUT4/details"
+    parent_dir = "/local/scratch/zli2255/workspace/hf_cache/datasets--Zachary1150--openrs-results/snapshots/1843659d6ef30d69f5914d6ac15fc537106d2f94/MRL4k_ROLLOUT4/details"
     output_csv = os.path.join(parent_dir, "summary.csv")
     model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
 
@@ -128,6 +128,13 @@ if __name__ == "__main__":
 
     # === 输出宽表 CSV ===
     df = pd.DataFrame(folder_dict.values())
+
+    acc_cols = [f"{task}_accuracy" for task in task_list]
+    len_cols = [f"{task}_length" for task in task_list]
+
+    df["avg_accuracy"] = df[acc_cols].mean(axis=1, skipna=True)
+    df["avg_length"] = df[len_cols].mean(axis=1, skipna=True)
+
     df.to_csv(output_csv, index=False)
 
     print(f"\n✅ Wide-format summary saved to {output_csv}")
