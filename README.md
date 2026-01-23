@@ -16,13 +16,19 @@ This repository hosts evaluation code from our paper:
 conda create -y -n sober python=3.10
 conda activate sober
 
-pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
-pip install vllm==0.7.2
-pip install setuptools
+# pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+pip install vllm==0.10.1
 pip install flash-attn --no-build-isolation
-pip install lighteval==0.8.1
+pip install setuptools
 pip install math-verify==0.5.2
 pip install datasets==3.6.0
+pip install transformers==4.55.2
+pip install lighteval==0.12.2
+pip install emoji
+pip install more-itertools
+
+
+# wget -nv https://github.com/flashinfer-ai/flashinfer/releases/download/nightly-v0.3.1-20251007/flashinfer_python-0.3.1.dev20251007-py3-none-any.whl && \
 # pip uninstall fsspec s3fs
 ```
 

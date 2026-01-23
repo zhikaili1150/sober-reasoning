@@ -5,7 +5,6 @@ from lighteval.logging.evaluation_tracker import EvaluationTracker
 from lighteval.models.vllm.vllm_model import VLLMModelConfig
 from lighteval.models.model_input import GenerationParameters
 from lighteval.pipeline import ParallelismManager, Pipeline, PipelineParameters
-from lighteval.utils.utils import EnvConfig
 from datetime import datetime
 import argparse
 import json
@@ -57,7 +56,7 @@ def main():
         max_model_length = None
 
     folder = args.model.replace("/", "_")
-    fname = f"{args.seed}-{args.temperature}-{args.top_p}-{args.task.split('|')[1]}-{args.max_new_tokens}"
+    fname = f"{args.seed}-{args.temperature}-{args.top_p}-{args.max_new_tokens}"
     if max_model_length != args.max_new_tokens:
         fname += f"-{max_model_length}"
     if not args.use_chat_template:
@@ -72,7 +71,7 @@ def main():
         with open(args.system_prompt, "r") as f:
             system_prompt = f.read()
 
-    env_config = EnvConfig()
+    # env_config = EnvConfig()
 
     evaluation_tracker = EvaluationTracker(
         output_dir=args.output_dir,
@@ -85,23 +84,18 @@ def main():
     assert args.launcher_type == "VLLM", "Only VLLM is supported for now"
     pipeline_params = PipelineParameters(
         launcher_type=ParallelismManager.VLLM,
-        env_config=env_config,
         job_id=0,
         dataset_loading_processes=1,
         custom_tasks_directory=args.custom_tasks_directory,
-        override_batch_size=-1,  # Cannot override batch size when using VLLM
         num_fewshot_seeds=1,
         max_samples=None,
-        use_chat_template=args.use_chat_template,
-        system_prompt=system_prompt,
         load_responses_from_details_date_id=None,
     )
 
     model_config = VLLMModelConfig(
-        pretrained=args.model,
+        model_name=args.model,
         dtype=args.dtype,
         seed=args.seed,
-        use_chat_template=args.use_chat_template,
         max_model_length=max_model_length,
         gpu_memory_utilization=args.gpu_memory_utilization,
         generation_parameters=GenerationParameters(
