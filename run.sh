@@ -1,14 +1,14 @@
-LOCAL_DIR=/local/scratch/zli2255/workspace/sober-reasoning
-OUTPUT_DIR=result/icml/math_test
+LOCAL_DIR=/root/sober-reasoning
+OUTPUT_DIR=/root/autodl-fs/result/icml/math
 PARTITION=h100
-VENV=/local/scratch/zli2255/anaconda3/etc/profile.d/conda.sh
+VENV=/root/miniconda3/etc/profile.d/conda.sh
 mkdir -p $OUTPUT_DIR/logs
 
 source $VENV
-conda activate sob
+conda activate sober
 cd $LOCAL_DIR
 
-MODEL=Qwen/Qwen3-4B-Instruct-2507
+MODEL=Zachary1150/math_acc_4B
 TOP_P=0.9
 TEMP=0.8
 MAX_MODEL_LENGTH=32768
@@ -17,8 +17,7 @@ MAX_TOKENS=32768
 # =========================
 # Unified tasks (no seed)
 # =========================
-TASKS="aime24_,amc23_"
-# TASKS="aime24,amc23,math_500,minerva,olympiadbench"
+TASKS="aime24_,amc23,math_500_,minerva,olympiadbench"
 
 python main.py \
     --model "$MODEL" \
