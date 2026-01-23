@@ -126,8 +126,10 @@ def math_validation_prompt_fn(line, task_name: str = None):
 avg_at_10_math = Metrics.avg_at_n_math(sample_params={"n": 10})
 avg_at_3_math = Metrics.avg_at_n_math(sample_params={"n": 3})
 
+
+# Define tasks
 aime24 = LightevalTaskConfig(
-    name="aime24_v2",
+    name="aime24_",
     prompt_function=aime_prompt_fn,
     hf_repo="HuggingFaceH4/aime_2024",
     hf_subset="default",
@@ -139,23 +141,8 @@ aime24 = LightevalTaskConfig(
     metrics=[avg_at_10_math],
     version=1,
 )
-
-# Define tasks
-aime24 = LightevalTaskConfig(
-    name="aime24",
-    prompt_function=aime_prompt_fn,
-    hf_repo="HuggingFaceH4/aime_2024",
-    hf_subset="default",
-    hf_avail_splits=["train"],
-    evaluation_splits=["train"],
-    few_shots_split=None,
-    few_shots_select=None,
-    generation_size=32768,
-    metric=[avg_at_10_math],
-    version=1,
-)
 aime25 = LightevalTaskConfig(
-    name="aime25",
+    name="aime25_",
     prompt_function=aime_prompt_fn,
     hf_repo="yentinglin/aime_2025",
     hf_subset="default",
@@ -164,11 +151,11 @@ aime25 = LightevalTaskConfig(
     few_shots_split=None,
     few_shots_select=None,
     generation_size=32768,
-    metric=[avg_at_10_math],
+    metrics=[avg_at_10_math],
     version=1,
 )
 math_500 = LightevalTaskConfig(
-    name="math_500",
+    name="math_500_",
     prompt_function=math_prompt_fn,
     hf_repo="HuggingFaceH4/MATH-500",
     hf_subset="default",
@@ -177,7 +164,7 @@ math_500 = LightevalTaskConfig(
     few_shots_split=None,
     few_shots_select=None,
     generation_size=32768,
-    metric=[avg_at_3_math],
+    metrics=[avg_at_3_math],
     version=1,
 )
 minerva = LightevalTaskConfig(
@@ -190,7 +177,7 @@ minerva = LightevalTaskConfig(
     few_shots_split=None,
     few_shots_select=None,
     generation_size=32768,
-    metric=[avg_at_3_math],
+    metrics=[avg_at_3_math],
     version=1,
 )
 amc23 = LightevalTaskConfig(
@@ -203,7 +190,7 @@ amc23 = LightevalTaskConfig(
     few_shots_split=None,
     few_shots_select=None,
     generation_size=32768,
-    metric=[avg_at_10_math],
+    metrics=[avg_at_10_math],
     version=1,
 )
 olympiadbench = LightevalTaskConfig(
@@ -216,7 +203,7 @@ olympiadbench = LightevalTaskConfig(
     few_shots_split=None,
     few_shots_select=None,
     generation_size=32768,
-    metric=[avg_at_3_math],
+    metrics=[avg_at_3_math],
     version=1,
 )
 

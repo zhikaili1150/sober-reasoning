@@ -13,10 +13,8 @@ This repository hosts evaluation code from our paper:
 ## Installation:
 
 ```bash
-conda create -y -n sober python=3.10
+conda create -y -n sober python=3.12
 conda activate sober
-
-# pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
 pip install vllm==0.10.1
 pip install flash-attn --no-build-isolation
 pip install setuptools
