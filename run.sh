@@ -8,9 +8,9 @@ source $VENV
 conda activate sober
 cd $LOCAL_DIR
 
-MODEL=Zachary1150/math_acc_4B
-TOP_P=0.9
-TEMP=0.8
+MODEL=Zachary1150/math_mix_4B
+TOP_P=0.95
+TEMP=0.6
 MAX_MODEL_LENGTH=32768
 MAX_TOKENS=32768
 
@@ -18,6 +18,11 @@ MAX_TOKENS=32768
 # Unified tasks (no seed)
 # =========================
 TASKS="aime24_,amc23,math_500_,minerva,olympiadbench"
+
+START_TIME=$(date +"%Y-%m-%d %H:%M:%S")
+START_SEC=$SECONDS
+
+echo "Job started at: $START_TIME"
 
 python main.py \
     --model "$MODEL" \
@@ -29,3 +34,9 @@ python main.py \
     --max_model_length "$MAX_MODEL_LENGTH" \
     --custom_tasks_directory lighteval_tasks.py \
     --use_chat_template
+
+END_TIME=$(date +"%Y-%m-%d %H:%M:%S")
+ELAPSED_SEC=$((SECONDS - START_SEC))
+
+echo "Job finished at: $END_TIME"
+echo "Total time: $((ELAPSED_SEC/3600))h $((ELAPSED_SEC%3600/60))m $((ELAPSED_SEC%60))s"
