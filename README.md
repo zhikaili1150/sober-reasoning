@@ -19,7 +19,7 @@ pip install vllm==0.10.1
 pip install flash-attn --no-build-isolation
 pip install setuptools
 pip install math-verify==0.5.2
-pip install datasets==3.6.0
+pip install datasets==4.5.0
 pip install transformers==4.55.2
 pip install lighteval==0.12.2
 pip install emoji
