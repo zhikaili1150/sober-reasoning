@@ -121,36 +121,6 @@ def main():
     results = pipeline.get_results()
     pipeline.save_and_push_results()
 
-    data = {
-        "start_time": start.isoformat(),
-        "end_time": datetime.now().isoformat(),
-        "total_evaluation_time_seconds": (datetime.now() - start).total_seconds(),
-        "model": args.model,
-        "temperature": args.temperature,
-        "top_p": args.top_p,
-        "top_k": args.top_k,
-        "repetition_penalty": args.repetition_penalty,
-        "task": args.task,
-        "max_new_tokens": args.max_new_tokens,
-        "max_model_length": max_model_length,
-        "gpu_memory_utilization": args.gpu_memory_utilization,
-        "dtype": args.dtype,
-        "seed": args.seed,
-        "system_prompt": system_prompt,
-        "use_chat_template": args.use_chat_template,
-        "results": results["results"]["all"],
-        "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
-        "version": __version__,
-        "launcher_type": args.launcher_type,
-        "device_name": torch.cuda.get_device_name(),
-        "lighteval_config": results["config_general"],
-    }
-
-    print(json.dumps(data, indent=2))
-    fs.makedirs(os.path.join(output_dir, folder), exist_ok=True)
-    with fs.open(fpath, "w") as f:
-        f.write(json.dumps(data) + "\n")
-
 
 if __name__ == "__main__":
     main()
